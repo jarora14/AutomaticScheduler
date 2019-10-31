@@ -1,71 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+    
+    
+	<link rel="stylesheet" type="text/css" href="index.css">
 		 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet'>
 		  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
-    
-    <style>
-.button {
-    
-  background-color: white;
-  border: none;
-  border-radius: 4px;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bolder;
-  font-family: 'Open Sans', sans-serif;
-  margin: 25px 2px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-        
-.button:hover{
-    background-color: orange;
-    color: black;
-}
-    
-    </style>
 </head>
 <body>
+    <script src = "index.js"></script>
+    <!-- The Modal Login -->
+    <div id="id01" class="modal">
 
-	<div class="bgimage">
-		<div class="menu">
-			
-			<div class="leftmenu">
-				<h4> TakeBefore. </h4>
-			</div>
-
-			<div class="rightmenu">
-				<ul>
-                    <li>Home</li>
-					<li> Services </li>
-					<li> Resources </li>
-                    <li> Help Center </li>
-					<li> Contact Us </li>
-                </ul>
-			</div>
-            <div class="account">
-                <ul>
-                    <lj> Log In </lj>
-                    <lj> Sign Up </lj>
-                </ul>
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content -->
+        <form  class="modal-content animate"  onSubmit="event.preventDefault();return validateLogin();">
+            <div class="imgcontainer">
+                <img src="userIcon.png" alt="Avatar" class="avatar">
             </div>
-        </div>
 
+            <div class="container">
+
+                <label for="email"><b>Email</b></label>
+                <input id ="emailLogin"type="text" placeholder="Enter Username" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id ="passwordLogin"type="password" placeholder="Enter Password" name="psw" required>
+
+                <button id = "submit" type = "submit" >Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- The Register Modal -->
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content -->
+        <form class="modal-content animate" onSubmit="event.preventDefault();return validateRegister();">
+            <div class="imgcontainer">
+                <img src="userIcon.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="create_email"><b>Enter Email</b></label>
+                <input id="emailRegister" type="text" placeholder="Enter Email" name="create_email" required>
+
+                <label for="createpsw"><b>Create Password</b></label>
+                <input id= "passwordRegister" type="password" placeholder="Create Password" name="createpsw" required>
+
+                <label for="vpsw"><b>Verify Password</b></label>
+                <input id = "passwordRegister2" type="password" placeholder="Verify Password" name="vpsw" required>
+
+                <button type="submit">Register</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- The Admin Modal -->
+    <div id="id03" class="modal">
+            <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+            <!-- Modal Content -->
+            <form class="modal-content animate" onSubmit="event.preventDefault();return validateAdmin();" >
+                <div class="imgcontainer">
+                    <img src="userIcon.png" alt="Avatar" class="avatar">
+                </div>
+                <div class="container">
+                    
+                    <label for="adminPasswordHint"><b>Admin Password</b></label>
+                    <input id = "adminPass" type="text" placeholder="Enter Admin Password" name="adminPasswordHint" required>
+    
+                    <button type="submit">Login</button>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                            class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+            
+    </div>
+
+    <!-- Main Page -->
+	<div class="bgimage">
 		<div class="text">
-			<h4> DESIGN • DEVELOPMENT • BRANDING </h4>
-			<h1> CREATIVE & EXPERIENCED </h1>
-			<h3> BRINGING QUALITY PRINT SERVICE DELIVERED TO YOUR DOORSTEP </h3>
-            <a href="#" class="button"> order printing</a>
+            <h1> OVERTURE SCHEDULING </h1>
+            <!-- Buttons -->
+            <div class="menu">
+                <a class="button" onclick="document.getElementById('id01').style.display='block'"> User Login</a>
+                <a class="button" onclick="document.getElementById('id03').style.display='block'"> Admin Login</a>
+                <a class="button" onclick="document.getElementById('id02').style.display='block'"> User Signup</a>
+            </div>
 		</div>
 
-	</div>
+    </div>
+    
+    <script>
+    var modal = document.getElementById('id01');
+    var modal2 = document.getElementById('id02');
+    var modal3 = document.getElementById('id03');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal || event.target == modal2 || event.target == modal3) {
+            modal.style.display = "none";
+            modal2.style.display = "none";
+            modal3.style.display = "none";
+
+        }
+    }
+    </script>
 
 </body>
 </html>
