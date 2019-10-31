@@ -22,6 +22,47 @@
             background-color: #f1f1f1;
         }
 
+        /* table.empSchedule is for the employee schedule view */
+        table.empSchedule {
+            border: 2px solid #FFFFFF;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table.empSchedule td, table.empSchedule th {
+            border: 1px solid #FFFFFF;
+            padding: 3px 4px;
+        }
+        table.empSchedule tbody td {
+            font-size: 13px;
+        }
+        table.empSchedule td:nth-child(even) {
+            background: #EBEBEB;
+        }
+        table.empSchedule thead {
+            background: #FFFFFF;
+            border-bottom: 4px solid #333333;
+        }
+        table.empSchedule thead th {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333333;
+            text-align: center;
+            border-left: 2px solid #333333;
+        }
+        table.empSchedule thead th:first-child {
+            border-left: none;
+        }
+        table.empSchedule tfoot {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333333;
+            border-top: 4px solid #333333;
+        }
+        table.empSchedule tfoot td {
+            font-size: 14px;
+        }
+
         .button {
 
             background-color: white;
@@ -48,7 +89,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: auto auto auto auto auto auto auto auto;
-            background-color: orange;
+            background-color: #FFFFFF;
             padding: 10px;
         }
 
@@ -62,13 +103,13 @@
 
         .grid-list {
             display: inline-grid;
-            background-color: orange;
+            background-color: #333333;
             padding: 10px;
         }
 
         .navbar {
             overflow: hidden;
-            background-color: orange;
+            background-color: #333333;
             position: fixed;
             top: 0;
             width: 100%;
@@ -85,7 +126,7 @@
         }
 
         .navbar a:hover {
-            background: rgb(121, 120, 119);
+            background: rgb(52, 144, 236);
             color: black;
         }
 
@@ -362,16 +403,16 @@
             <span onclick="document.getElementById('id02').style.display='none'" class="close"
                 title="Close Modal">&times;</span>
             <!-- Modal Content -->
-            <form class="modal-content animate" action="/action_page.php">
+            <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm">
 
                 <div class="form-group">
-                    From Date: <input type="date" name="from_date">
+                    From Date: <input class="form-control" type="date" name="from_date">
                 </div>
                 <div class="form-group">
-                    To Date: <input type="date" name="to_date">
+                    To Date: <input class="form-control" type="date" name="to_date">
                 </div>
                 <div class="form-group">
-                    Start time: <select id="start">
+                    Start time: <select id="start" class="form-control">
                         <option selected value="base">Please Select</option>
                         <option value="6a">6a</option>
                         <option value="7a">7a</option>
@@ -395,7 +436,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    Stop time: <select id="stop">
+                    Stop time: <select class="form-control" id="stop">
                         <option selected value="base">Please Select</option>
                         <option value="7a">7a</option>
                         <option value="8a">8a</option>
@@ -425,6 +466,7 @@
                     <button type="button" onclick="document.getElementById('id02').style.display='none'"
                         class="submit">Submit</button>
                 </div>
+                <script src="requestTimeOff.js"></script>
             </form>
         </div>
 
