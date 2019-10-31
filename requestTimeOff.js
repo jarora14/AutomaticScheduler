@@ -7,16 +7,30 @@ function saveIssue (e) {
     var requestEnd = document.getElementById('requestEndInput').value;
     var requestDesc = document.getElementById('requestDescInput').value;
     var submitted = document.getElementById('submitted');
+    var x = 1;
 
-    //need to send these^^ as a requestOff object to firebase to store which then can be accessed
-    //by admin page to view requests off
+    sendData(requestStart, requestEnd, requestDesc);
+
     submitted.innerHTML = '<div class="alert alert-primary" role="alert"> Submitted </div>';
-
+    if (x==1) {
+        setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 3000);
+        x = 0;
+    }
     document.getElementById('requestTimeOffForm').reset();
 
     requestTimeOff();
 
     e.preventDefault();
+
+}
+
+function sendData() {
+
+    var reqS = arguments[0];
+    var reqE = arguments[1];
+    var reqD = arguments[2];
+    
+    
 
 }
   
