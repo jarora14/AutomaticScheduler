@@ -12,7 +12,7 @@ function saveIssue (e) {
     var sendData = checkDate(requestStart) && checkDate(requestEnd);
 
     if (requestDesc == "") {
-        requestDesc = "No reason given");
+        requestDesc = "No reason given";
     }
 
     if (sendData == true) {
