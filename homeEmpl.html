@@ -82,9 +82,9 @@
     </style>
 </head>
 <body>
+    <div class="jumbotron">
 <!-- The Modal Set Availability -->
 <div id="id01" class="modal">
-
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
@@ -261,19 +261,24 @@
             </div>
         </form>
     </div>
+</div>
 
     <!-- The Request Time Off Modal -->
     <div id="id02" class="modal">
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
+            <div class="jumbotron")>
         <form class="modal-content animate" action="/action_page.php">
 
             <div class="container">
-                From Date: <input type="date" name="from_date">
-
-                To Date: <input type="date" name="to_date">
-
+                <div class="container">
+                    From Date: <input type="date" name="from_date">
+                </div>
+                <div class="container">
+                    To Date: <input type="date" name="to_date">
+                </div>
+                <div class="container">
                 Start time: <select id="first-choice">
                     <option selected value="base">Please Select</option>
                     <option value="6a">6a</option>
@@ -294,8 +299,10 @@
                     <option value="9p">9p</option>
                     <option value="10p">10p</option>
                     <option value="11p">11p</option>
-                    <option value="12p">12p</option>
+                    <option value="12a">12a</option>
                 </select>
+            </div>
+            <div class="container">
                 Stop time: <select id="first-choice">
                     <option selected value="base">Please Select</option>
                     <option value="7a">7a</option>
@@ -315,10 +322,13 @@
                     <option value="9p">9p</option>
                     <option value="10p">10p</option>
                     <option value="11p">11p</option>
-                    <option value="12p">12p</option>
+                    <option value="12a">12a</option>
                     <option value="1a">1a</option>
                 </select>
+            </div>
+            <div class="container">
                 <button type="submit">Submit</button>
+            </div>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
@@ -327,6 +337,7 @@
             </div>
         </form>
     </div>
+</div>
     
     <div id="id02" class="modal">
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
