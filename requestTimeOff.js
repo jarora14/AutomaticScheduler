@@ -12,20 +12,19 @@ function saveIssue (e) {
     var sendData = checkDate(requestStart) && checkDate(requestEnd);
 
     if (sendData == true) {
-        sendData(requestStart, requestEnd, requestDesc);
-
         submitted.innerHTML = '<div class="alert alert-primary" role="alert"> Submitted </div>';
 
         if (x==1) {
-            setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 2000);
+            setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 3000);
             x = 0;
         }
+        //sendData(requestStart, requestEnd, requestDesc);
     }
     else {
         submitted.innerHTML = '<div class="alert alert-primary" role="alert"> Input Not Valid </div>';
 
         if (x==1) {
-            setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 2000);
+            setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 3000);
             x = 0;
         }
     }
@@ -38,11 +37,11 @@ function saveIssue (e) {
 
 }
 
-function sendData() {
+function sendData(reqStart, reqEnd, reqDesc) {
 
-    var reqS = arguments[0];
-    var reqE = arguments[1];
-    var reqD = arguments[2];
+    var reqS = reqStart;
+    var reqE = reqEnd;
+    var reqD = reqDesc;
 
     //ToDo: send data to firebase
 }
