@@ -21,18 +21,41 @@ function saveIssue (e) {
     var requestNotes = document.getElementById('requestNoteInput').value;
     var submitted = document.getElementById('submitted');
     var x = 1;
-
-    sendData(mondayStart, mondayEnd, tuesdayStart, tuesdayEnd, wednesdayStart, wednesdayEnd, thursdayStart, thursdayEnd, fridayStart, fridayEnd, saturdayStart, saturdayEnd, sundayStart, sundayEnd, requestDesired, requestNotes);
+    
 
     submitted.innerHTML = '<div class="alert alert-primary" role="alert"> Submitted </div>';
     if (x==1) {
         setInterval(function(){submitted.innerHTML = '<div class="alert alert-primary" role="alert"></div>';}, 3000);
         x = 0;
     }
+    //sendData(mondayStart, mondayEnd, tuesdayStart, tuesdayEnd, wednesdayStart, wednesdayEnd, thursdayStart, thursdayEnd, fridayStart, fridayEnd, saturdayStart, saturdayEnd, sundayStart, sundayEnd, requestDesired, requestNotes);
+
     document.getElementById('setAvailabilityForm').reset();
 
     setAvail();
 
     e.preventDefault();
 
+}
+
+function sendData(mondayStart, mondayEnd, tuesdayStart, tuesdayEnd, wednesdayStart, wednesdayEnd, thursdayStart, thursdayEnd, fridayStart, fridayEnd, saturdayStart, saturdayEnd, sundayStart, sundayEnd, requestDesired, requestNotes) {
+
+    var monS = monStart;
+    var monE = monEnd;
+    var tueS = tueStart;
+    var tueE = tueEnd;
+    var wedS = wedStart;
+    var wedE = wedEnd;
+    var thuS = thuStart;
+    var thuE = thuEnd;
+    var friS = friStart;
+    var friE = friEnd;
+    var satS = satStart;
+    var satE = satEnd;
+    var sunS = sunStart;
+    var sunE = sunEnd;
+    var reqD = reqDesired; 
+    var reqN = reqNotes;
+
+    //Firebase implementation
 }
