@@ -327,10 +327,27 @@
             </div>
         </form>
     </div>
+    
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content View Schedule -->
+        <form class="modal-content animate" action="/action_page.php">
+    
+            </div class="container" style = "background-color: #f1f1f1">
+
+
+   
+                <div>
+            </form>
+     </div>
+
+    
+
 
     <div class="navbar">       
         <a href="#" class="button" onclick="document.getElementById('id01').style.display='block'"> Set availability</a>
-        <a href="#" class="button"> View schedule</a>
+        <a href="#" class="button" onclick="document.getElementById('id03').style.display='block'"> View schedule</a>
         <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Request time off</a>
     </div>
     
@@ -338,11 +355,13 @@
             // Get the modal
             var modal = document.getElementById('id01');
             var modal2 = document.getElementById('id02');
+            var modal3 = document.getElementById("id03")
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function (event) {
-                if (event.target == modal || event.target == modal2) {
+                if (event.target == modal || event.target == modal2 || event.target == modal3) {
                     modal.style.display = "none";
                     modal2.style.display = "none";
+                    modal3.style.display = "none";
                 }
             }
     </script>
