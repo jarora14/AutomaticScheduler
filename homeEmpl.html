@@ -10,6 +10,18 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+        .form-group {
+            margin-bottom:5px;
+            margin-top:5px;
+        }
+        .select {
+            width: 20%;
+            padding: 2px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
+
         .button {
 
             background-color: white;
@@ -75,6 +87,10 @@
         .navbar a:hover {
             background: rgb(121, 120, 119);
             color: black;
+        }
+
+        .topnav-right {
+            float: right;
         }
 
         /* The Modal (background) */
@@ -348,14 +364,14 @@
             <!-- Modal Content -->
             <form class="modal-content animate" action="/action_page.php">
 
-                <div class="container">
+                <div class="form-group">
                     From Date: <input type="date" name="from_date">
                 </div>
-                <div class="container">
+                <div class="form-group">
                     To Date: <input type="date" name="to_date">
                 </div>
-                <div class="container">
-                    Start time: <select id="first-choice">
+                <div class="form-group">
+                    Start time: <select id="start">
                         <option selected value="base">Please Select</option>
                         <option value="6a">6a</option>
                         <option value="7a">7a</option>
@@ -378,8 +394,8 @@
                         <option value="12a">12a</option>
                     </select>
                 </div>
-                <div class="container">
-                    Stop time: <select id="first-choice">
+                <div class="form-group">
+                    Stop time: <select id="stop">
                         <option selected value="base">Please Select</option>
                         <option value="7a">7a</option>
                         <option value="8a">8a</option>
@@ -417,7 +433,8 @@
                 title="Close Modal">&times;</span>
             <!-- Modal Content View Schedule -->
             <form class="modal-content animate" action="/action_page.php">
-
+                <table class="empSchedule"></table>
+                <script src="schedulerEmp.js"></script>
             </form>
         </div>
 
@@ -428,24 +445,27 @@
                 schedule</a>
             <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Request time
                 off</a>
+            <div class="topnav-right">
+                <a href="#" class="button" onclick="location.href='index.html';"> Logout</a>
+            </div>
         </div>
-    
+
     </div>
 
-        <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-            var modal2 = document.getElementById('id02');
-            var modal3 = document.getElementById("id03")
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal || event.target == modal2 || event.target == modal3) {
-                    modal.style.display = "none";
-                    modal2.style.display = "none";
-                    modal3.style.display = "none";
-                }
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+        var modal3 = document.getElementById("id03")
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal || event.target == modal2 || event.target == modal3) {
+                modal.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
             }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
