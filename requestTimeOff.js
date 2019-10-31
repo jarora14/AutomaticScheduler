@@ -11,6 +11,10 @@ function saveIssue (e) {
 
     var sendData = checkDate(requestStart) && checkDate(requestEnd);
 
+    if (requestDesc == "") {
+        requestDesc = "No reason given");
+    }
+
     if (sendData == true) {
         submitted.innerHTML = '<div class="alert alert-primary" role="alert"> Submitted </div>';
 
