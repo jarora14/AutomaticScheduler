@@ -3,6 +3,6 @@ username: test1
 password: test1
 
 and to log in as an admin (which doesn't have a full page yet) use:
-credentials: 123
+credentials: 1234
 
 and that's it!
