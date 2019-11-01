@@ -1,1 +1,8 @@
-this is our app :)
+This is our app! To check it out, just open up index.html in any browser. You can right-click it and choose to open it that way or drag it to the browser your heart desires. Then have fun navigating our basic iteration 1! To log in as an employee use: 
+username: test1
+password: test1
+
+and to log in as an admin (which doesn't have a full page yet) use:
+credentials: 123
+
+and that's it!
