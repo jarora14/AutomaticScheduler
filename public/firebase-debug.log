@@ -1,0 +1,102 @@
+[debug] [2019-11-11T22:14:58.105Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T22:14:58.106Z] Command:       /usr/local/bin/firebase /Users/jacobhulten/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2019-11-11T22:14:58.106Z] CLI Version:   7.7.0
+[debug] [2019-11-11T22:14:58.106Z] Platform:      darwin
+[debug] [2019-11-11T22:14:58.107Z] Node Version:  v10.15.3
+[debug] [2019-11-11T22:14:58.107Z] Time:          Mon Nov 11 2019 16:14:58 GMT-0600 (Central Standard Time)
+[debug] [2019-11-11T22:14:58.107Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T22:14:58.107Z] 
+[debug] [2019-11-11T22:14:58.113Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-11T22:14:58.113Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jacobhulten/Desktop/506/AutomaticScheduler
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using realtimedatabase-d0a3e.
+[debug] [2019-11-11T22:15:02.992Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-11-11T22:15:03.185Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2019-11-11T22:15:10.223Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:66:28)
+    at Interface._setRawMode (readline.js:251:16)
+    at Interface.close (readline.js:376:10)
+    at ReadStream.ontermend (readline.js:164:10)
+    at ReadStream.emit (events.js:194:15)
+    at ReadStream.EventEmitter.emit (domain.js:441:20)
+    at endReadableNT (_stream_readable.js:1125:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+[debug] [2019-11-11T22:15:34.820Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T22:15:34.822Z] Command:       /usr/local/bin/firebase /Users/jacobhulten/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2019-11-11T22:15:34.822Z] CLI Version:   7.7.0
+[debug] [2019-11-11T22:15:34.822Z] Platform:      darwin
+[debug] [2019-11-11T22:15:34.822Z] Node Version:  v10.15.3
+[debug] [2019-11-11T22:15:34.823Z] Time:          Mon Nov 11 2019 16:15:34 GMT-0600 (Central Standard Time)
+[debug] [2019-11-11T22:15:34.823Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T22:15:34.823Z] 
+[debug] [2019-11-11T22:15:34.828Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-11T22:15:34.828Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jacobhulten/Desktop/506/AutomaticScheduler
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using realtimedatabase-d0a3e.
+[debug] [2019-11-11T22:15:38.604Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-11-11T22:15:38.764Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[info] Skipping overwrite of Database Rules.
+[info] The rules defined in database.rules.json will be published when you do firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
