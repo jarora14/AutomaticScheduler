@@ -53,6 +53,8 @@ function writeUserData(userEmail, Password) {
     var key = newUser.key;//unique key
     console.log(key);
 
+  //var userId = newUserRef.key();//unique generated id
+
 }
 
 function validateAdmin(){
@@ -86,10 +88,9 @@ function validateRegister(){
     }
     else{
         writeUserData(email,password);
-        console.log('test');
         alert("Account Created!")
         window.location.href = "index.html"; // Redirecting to other page.
         return true;
-        
+
     }
 }
