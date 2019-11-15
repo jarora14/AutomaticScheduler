@@ -91,6 +91,7 @@ function verifyUserCredentials(userEmail, Password, callback){
 
 function validateAdmin(){
     var adminCode = document.getElementById("adminPass").value;
+    console.log("TEST");
     if (adminCode != adminSetCode){
         alert("Invalid Admin credentials")
         return false;
