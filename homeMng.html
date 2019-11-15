@@ -203,15 +203,6 @@
 </style>
 
 <body>
-    </script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
-    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
 
     <div class="bgimage">
     </div>
@@ -250,7 +241,7 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" id="createNewEventForm" onSubmit="createEvent();">
+        <form class="modal-content animate" onsubmit="return createTheEvent();">
 
             <div class="form-group">
                 Name of Event: <input type="text" id="eventName" required>
@@ -310,10 +301,9 @@
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'"
                     class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                <button type="submit" onclick="document.getElementById('id02').style.display='none'"
                     class="submit">Submit</button>
             </div>
-            <script src="createEvent.js"></script>
         </form>
     </div>
 
@@ -350,6 +340,19 @@
             }
         }
     </script>
+
+
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
+
+    <script src="createEvent.js"></script>
 </body>
 
 </html>

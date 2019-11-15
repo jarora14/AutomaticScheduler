@@ -12,7 +12,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-function createEvent() {
+function createTheEvent() {
+    console.log("method is called");
     var name = document.getElementById("eventName").value;
     var date = document.getElementById("eventDate").value;
     var start = document.getElementById("eventStart").value;
@@ -25,5 +26,5 @@ function createEvent() {
         eventStart: start,
         eventStop: stop,
     });
-
+    return true;
 }
