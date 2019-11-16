@@ -1,4 +1,4 @@
-const createEvent = require('./createTheEvent');
+const createTheEvent = require('./createEvent');
 test('testing createEvent.js, expecting true to be returned', () => {
-    expect(createTheEvent()).toBe(true);
+    expect(createTheEvent).toBe(true);
   });
