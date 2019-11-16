@@ -430,13 +430,13 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm">
+        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm" onSubmit="return saveIssue();">
 
             <div class="form-group">
-                From Date: <input class="form-control" type="date" name="from_date">
+                From Date: <input class="form-control" type="date" id="from_date">
             </div>
             <div class="form-group">
-                To Date: <input class="form-control" type="date" name="to_date">
+                To Date: <input class="form-control" type="date" id="to_date">
             </div>
             <div class="form-group">
                 Start time: <select id="start" class="form-control">
