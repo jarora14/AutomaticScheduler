@@ -60,4 +60,4 @@ function sendData(mondayStart, mondayEnd, tuesdayStart, tuesdayEnd, wednesdaySta
     //Firebase implementation
 }
 
-module.exports = saveIssue;
+module.exports = setAvail;
