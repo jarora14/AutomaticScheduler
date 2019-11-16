@@ -1,1 +1,33 @@
-this is our app :)
+To use our project:
+
+Using the provided link to our repository:
+https://github.com/jarora14/AutomaticScheduler.git
+
+Clone our project. From here navigate to the ‘iteration2’ branch via
+
+         “$git checkout iteration2”
+
+Now you must download firebase using the command
+
+“$npm install -g firebase-tools”
+        (this requires having npm install)
+
+Now run
+
+        “$firebase login”
+
+This will navigate you to login to firebase. Use 
+
+        Email:         softwaresquad506@gmail.com
+Password:     cs506-Squad
+
+Now use
+        
+        “$firebase init”
+
+Using the spacebar select Hosting and Database, then proceed to press enter until initialization is complete.
+
+Finally run
+        “$firebase serve”
+and copy the local host url into a browser to test our iteration 2.
+
