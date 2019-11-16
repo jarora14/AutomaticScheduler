@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Manager Home</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic'
         rel='stylesheet'>
@@ -209,10 +209,10 @@
 
     <div class="navbar">
         <a href="#" class="button" onclick="document.getElementById('id01').style.display='block'"> Schedule</a>
-        <a href="#" class="button" onclick="document.getElementById('id04').style.display='block'"> Create Event</a>
-        <a href="#" class="button" onclick="document.getElementById('id03').style.display='block'"> Shift trade
+        <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Create Event</a>
+        <a href="#" class="button" onclick="document.getElementById('id03').style.display='block'"> Time off
             requests</a>
-        <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Time off
+        <a href="#" class="button" onclick="document.getElementById('id04').style.display='block'"> Shift trade
             requests</a>
         <div class="topnav-right">
             <a href="#" class="button" onclick="location.href='index.html';"> Logout</a>
@@ -227,9 +227,9 @@
             <table class="mngSchedule">
             </table>
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
                     class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
                     class="submit">Submit</button>
             </div>
             <script src="schedulerMng.js"></script>
@@ -237,17 +237,20 @@
     </div>
 
     <!-- Create New Event Modal -->
-    <div id="id04" class="modal">
-        <span onclick="document.getElementById('id04').style.display='none'" class="close"
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate" onsubmit="return createTheEvent();">
 
             <div class="form-group">
-                Date: <input class="form-control" type="date" name="from_date">
+                Name of Event: <input type="text" id="eventName" required>
             </div>
             <div class="form-group">
-                Start time: <select id="start" class="form-control">
+                Date: <input class="form-control" type="date" id="eventDate" required>
+            </div>
+            <div class="form-group">
+                Start time: <select id="eventStart" class="form-control" required>
                     <option selected value="base">Please Select</option>
                     <option value="6a">6a</option>
                     <option value="7a">7a</option>
@@ -271,7 +274,7 @@
                 </select>
             </div>
             <div class="form-group">
-                Stop time: <select class="form-control" id="stop">
+                Stop time: <select class="form-control" id="eventStop" required>
                     <option selected value="base">Please Select</option>
                     <option value="7a">7a</option>
                     <option value="8a">8a</option>
@@ -298,10 +301,26 @@
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'"
                     class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                <button type="submit" onclick="document.getElementById('id02').style.display='none'"
                     class="submit">Submit</button>
             </div>
-           <!-- <script src="createEvent.js"></script>-->
+        </form>
+    </div>
+
+    <div id="id03" class="modal">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content Schedule -->
+        <form class="modal-content animate" action="/action_page.php">
+            <table class="mngSchedule">
+            </table>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                    class="submit">Submit</button>
+            </div>
+            <!-- <script src="schedulerMng.js"></script> -->
         </form>
     </div>
 
@@ -321,6 +340,19 @@
             }
         }
     </script>
+
+
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
+
+    <script src="createEvent.js"></script>
 </body>
 
 </html>
