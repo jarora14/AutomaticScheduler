@@ -52,3 +52,5 @@ let table = document.querySelector("table.empSchedule");
 GenerateTableModule.initialize(table, schedule)
 
 GenerateTableModule.generateTable();
+
+module.exports = _generateTableHead;

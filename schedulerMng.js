@@ -55,3 +55,5 @@ let table = document.querySelector("table.mngSchedule");
 GenerateTableModule.initialize(table, schedule)
 
 GenerateTableModule.generateTable();
+
+module.exports = _generateTableHead;
