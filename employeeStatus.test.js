@@ -1,5 +1,6 @@
-const functions = require('./employeeStatus');
+const employeeStatus = require("./employeeStatus");
 
-test('Checks employee available or not', () =>{
-    expect
-})
+test('Tiger Woods should be in employees', () => {
+    employees = ['Pele' ,'Michael Philips', 'Tiger Woods'];
+    expect(employees).toContain('Tiger Woods');
+});

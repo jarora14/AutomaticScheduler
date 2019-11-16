@@ -1,4 +1,4 @@
-// Get data from setAvail.js and show it in the table.
+// Get data from schedulerEmp.js and show it in the table.
 let schedule = [
     { Employee: "Pele", Monday: "5:30pm - 7:00pm", Tuesday: "Unavailable", Wednesday: "Unavailable", Thursday: "Unavailable", Friday: "Available", Saturday: "11:00am - 1:00pm", Sunday: "8:00am - 12:00pm", },
     { Employee: "Michael Phelps", Monday: "Unavailable", Tuesday: "3:00pm - 8:00pm", Wednesday: "Unavailable", Thursday: "2:00pm - 12:00am", Friday: "8:00am - 11:00am", Saturday: "12:00pm - 5:00pm", Sunday: "7:00am - 9:00am", },
