@@ -1,0 +1,41 @@
+{
+<<<<<<< HEAD
+  "name": "AutomaticScheduler",
+  "version": "1.0.0",
+  "description": "this is our app :)",
+  "main": "index.js",
+=======
+  "name": "automaticscheduler",
+  "version": "1.0.0",
+  "description": "this is our app :)",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+>>>>>>> master
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarora14/AutomaticScheduler.git"
+  },
+<<<<<<< HEAD
+  "keywords": [],
+=======
+>>>>>>> master
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarora14/AutomaticScheduler/issues"
+  },
+<<<<<<< HEAD
+  "homepage": "https://github.com/jarora14/AutomaticScheduler#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+=======
+  "homepage": "https://github.com/jarora14/AutomaticScheduler#readme"
+>>>>>>> master
+}

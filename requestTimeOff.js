@@ -5,10 +5,13 @@ function requestTimeOff () {
 function saveIssue (e) {
     var requestStart = document.getElementById('requestStartInput').value;
     var requestEnd = document.getElementById('requestEndInput').value;
+    var timeStart = document.getElementById('start').value;
+    var timeEnd = document.getElementById('end').value;
     var requestDesc = document.getElementById('requestDescInput').value;
     var submitted = document.getElementById('submitted');
     var x = 1;
-
+    
+    write(requestStart, requestEnd, timeStart, timeEnd);
     var sendData = checkDate(requestStart) && checkDate(requestEnd);
 
     if (requestDesc == "") {
@@ -39,6 +42,17 @@ function saveIssue (e) {
 
     e.preventDefault();
 
+}
+
+function write(start, end, tstart, tend) {
+    var database = firebase.database();
+    var requestRef = database.ref('Requests');
+    var newRequest = requestRef.push({
+        date_start: start,
+        date_end: end,
+        time_start: tstart,
+        time_end: tend,
+    });
 }
 
 function sendData(reqStart, reqEnd, reqDesc) {
