@@ -1,6 +1,6 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-
+/*
 var firebaseConfig = {
     apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
     authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
@@ -13,12 +13,11 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+*/
+//firebase.analytics();
 //test for github
-
-
 // Below function Executes on click of login button.
-function validateLogin(){
+module.exports = function validateLogin(){
     var username = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
     verifyUserCredentials(username, password, function(bool){
@@ -42,7 +41,7 @@ function validateLogin(){
 }
 
 
-function writeUserData(userEmail, Password) {
+module.exports = function writeUserData(userEmail, Password) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var newUser = usersRef.push({
@@ -53,9 +52,9 @@ function writeUserData(userEmail, Password) {
     return true;
     console.log(key);
 }
-module.exports = writeUserData;
 
-function checkUserExists(userEmail, Password, callback){
+
+module.exports = function checkUserExists(userEmail, Password, callback){
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
@@ -72,7 +71,7 @@ function checkUserExists(userEmail, Password, callback){
     });
 }
 
-function verifyUserCredentials(userEmail, Password, callback){
+module.exports = function verifyUserCredentials(userEmail, Password, callback){
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
@@ -90,7 +89,7 @@ function verifyUserCredentials(userEmail, Password, callback){
     });
 }
 
-function validateAdmin(){
+module.exports = function validateAdmin(){
     var adminCode = document.getElementById("adminPass").value;
     console.log("TEST");
     if (adminCode != adminSetCode){
@@ -102,8 +101,10 @@ function validateAdmin(){
         return true;
     }
 }
+//module.exports = validateAdmin;
 
-function validateRegister(){
+
+module.exports = function validateRegister(){
     var email = document.getElementById("emailRegister").value;
     var password = document.getElementById("passwordRegister").value;
     var password2 = document.getElementById("passwordRegister2").value;
