@@ -161,6 +161,115 @@ describe('Automatic Scheduler Sign-in Page', function () {
         assert.equal(titleText, 'View schedule');
     });
 
+    it('Attempt Login with invalid Credentials, accept alert and verify user is not logged in...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        let title = await driver.findElement(By.css('div#id01 > form > div:nth-of-type(2) > label > b'));
+        let titleText;
+        await title.getText().then(function (text) {
+            console.log("Label Found: ",text);
+            console.log("Label Desired: ","Email");
+            titleText = text;
+         });
+        assert.equal(titleText, 'Email');
+
+    });
+
+    it('Attempt Login with invalid Credentials once, verify 2 attempts left...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
+        await driver.wait(until.alertIsPresent());
+        let text = await driver.switchTo().alert().getText();
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","You have left 2 attempt;");
+        assert.equal(text, 'You have left 2 attempt;');
+    });
+
+    it('Attempt Login with invalid Credentials once, verify 1 attempts left...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000); 
+        await driver.findElement(By.css('button#submit')).click();
+        await driver.wait(until.alertIsPresent());
+        
+        let text = await driver.switchTo().alert().getText();
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","You have left 1 attempt;");
+        assert.equal(text, 'You have left 1 attempt;');
+    });
+
+    it('Attempt Login with invalid Credentials once, verify 0 attempts left...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000); 
+        await driver.findElement(By.css('button#submit')).click();
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000); 
+        await driver.findElement(By.css('button#submit')).click();
+        await driver.wait(until.alertIsPresent());
+        let text = await driver.switchTo().alert().getText();
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","You have left 0 attempt;");
+        assert.equal(text, 'You have left 0 attempt;');
+    });
+
+    it('Attempt Login with invalid Credentials once, verify 0 attempts left...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000); 
+        await driver.findElement(By.css('button#submit')).click();
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000); 
+        await driver.findElement(By.css('button#submit')).click();
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.wait(until.elementLocated(By.css('button#submit')), 10000);
+
+        let loginButton =  await driver.findElement(By.css('button#submit')).isEnabled();
+        console.log("Boolean Found: ",loginButton);
+        console.log("Boolean Desired: ",false);
+        assert.equal(false,loginButton);
+    });
+
+    /////////////////////////////////////SIGN UP BUTTON/////////////////////////////////////
+
+    
+
+
+
+
+
+
     // close the browser after running tests
     this.afterEach(() => 
         driver && driver.quit());
