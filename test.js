@@ -15,15 +15,9 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Check Title is displayed on page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
-        
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
         let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
         let titleText;
         await title.getText().then(function (text) {
@@ -40,17 +34,12 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Admin button and verify user taken to correct Page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(2) > label > b')), 10000);
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(2) > button')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('div#id03 > form')), 10000);
         
         let title = await driver.findElement(By.css('div#id03 > form > div:nth-of-type(2) > label > b'));
         let titleText;
@@ -65,13 +54,6 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Admin button, then click cancel button, verify user can see homepage...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(3) > button')), 10000);
@@ -92,21 +74,11 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Enter Correct Admin password and be brought to admin page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
-
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
         await driver.wait(until.elementLocated(By.css('input#adminPass')), 10000);
         await driver.findElement(By.css('input#adminPass')).sendKeys('1234',Key.RETURN);
         await driver.wait(until.alertIsPresent());
         await driver.switchTo().alert().accept();
-
         let title = await driver.findElement(By.css('html > body > div > div > div > a'));
         let titleText;
         await title.getText().then(function (text) {
@@ -120,24 +92,13 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Enter Incorrect Admin password, should be notified the credentials are invalid...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
-
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
         await driver.wait(until.elementLocated(By.css('input#adminPass')), 10000);
         await driver.findElement(By.css('input#adminPass')).sendKeys('123',Key.RETURN);
         await driver.wait(until.alertIsPresent());
         let text = await driver.switchTo().alert().getText();
-
         console.log("Alert Found: ",text);
         console.log("Alert Desired: ","Invalid Admin credentials");
-
         assert.equal(text, 'Invalid Admin credentials');
     });
 
@@ -146,17 +107,11 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Login button and verify user taken to correct Page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
         await driver.wait(until.elementLocated(By.css('div#id01 > form > div:nth-of-type(2) > label > b')), 10000);
         await driver.wait(until.elementLocated(By.css('button#submit')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id01 > form')), 10000);
         
         let title = await driver.findElement(By.css('div#id01 > form > div:nth-of-type(2) > label > b'));
         let titleText;
@@ -171,18 +126,10 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Login button, then click cancel button, verify user can see homepage...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
         await driver.wait(until.elementLocated(By.css('div#id01 > form > div:nth-of-type(3) > button')), 10000);
         let element = await driver.findElement(By.css("div#id01 > form > div:nth-of-type(3) > button"));
-        
         driver.executeScript("arguments[0].click()",element);
         let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
         let titleText;
@@ -195,30 +142,15 @@ describe('Automatic Scheduler Sign-in Page', function () {
         assert.equal(titleText, 'OVERTURE SCHEDULING');
     });
     
-    it('Login Valid User', async function() {
+    it('Login with valid user and verify user is brough to employee home screen...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
-        
-        // Find the search box by id
-        //await driver.findElement(By.id('lst-ib')).click();
-        // Enter keywords and click enter
-        //await driver.findElement(By.id('lst-ib')).sendKeys('dalenguyen', Key.RETURN);
-        // Wait for the results box by id
-        //await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
-        // We will get the title value and test it
-      
-        
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
-        
-        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000);
-        
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('dont',Key.RETURN);
-        
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('delete',Key.RETURN);
-        
         await driver.wait(until.alertIsPresent());
         await driver.switchTo().alert().accept();
-
         let title = await driver.findElement(By.css('html > body > div > div:nth-of-type(4) > a:nth-of-type(2)'));
         let titleText;
         await title.getText().then(function (text) {
