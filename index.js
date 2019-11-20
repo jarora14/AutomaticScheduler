@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 //test for github
 // Below function Executes on click of login button.
-module.exports = function validateLogin(){
+function validateLogin(){
     var username = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
     verifyUserCredentials(username, password, function(bool){
@@ -41,7 +41,7 @@ module.exports = function validateLogin(){
 }
 
 
-module.exports = function writeUserData(userEmail, Password) {
+function writeUserData(userEmail, Password) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var newUser = usersRef.push({
@@ -54,7 +54,7 @@ module.exports = function writeUserData(userEmail, Password) {
 }
 
 
-module.exports = function checkUserExists(userEmail, Password, callback){
+function checkUserExists(userEmail, Password, callback){
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
@@ -71,7 +71,7 @@ module.exports = function checkUserExists(userEmail, Password, callback){
     });
 }
 
-module.exports = function verifyUserCredentials(userEmail, Password, callback){
+function verifyUserCredentials(userEmail, Password, callback){
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
@@ -89,7 +89,7 @@ module.exports = function verifyUserCredentials(userEmail, Password, callback){
     });
 }
 
-module.exports = function validateAdmin(){
+function validateAdmin(){
     var adminCode = document.getElementById("adminPass").value;
     console.log("TEST");
     if (adminCode != adminSetCode){
@@ -101,10 +101,10 @@ module.exports = function validateAdmin(){
         return true;
     }
 }
-//module.exports = validateAdmin;
 
 
-module.exports = function validateRegister(){
+
+function validateRegister(){
     var email = document.getElementById("emailRegister").value;
     var password = document.getElementById("passwordRegister").value;
     var password2 = document.getElementById("passwordRegister2").value;
