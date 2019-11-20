@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "AutomaticScheduler",
-  "version": "1.0.0",
-  "description": "this is our app :)",
-  "main": "index.js",
-=======
   "name": "automaticscheduler",
   "version": "1.0.0",
   "description": "this is our app :)",
@@ -18,7 +12,6 @@
     "mocha": "^6.2.2",
     "nyc": "^14.1.1"
   },
->>>>>>> master
   "scripts": {
     "test": "mocha --recursive --timeout 10000",
     "coverage": "nyc npm run test",
@@ -38,21 +31,10 @@
     "type": "git",
     "url": "git+https://github.com/jarora14/AutomaticScheduler.git"
   },
-<<<<<<< HEAD
-  "keywords": [],
-=======
->>>>>>> master
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jarora14/AutomaticScheduler/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/jarora14/AutomaticScheduler#readme",
-  "devDependencies": {
-    "jest": "^24.9.0"
-  }
-=======
   "homepage": "https://github.com/jarora14/AutomaticScheduler#readme"
->>>>>>> master
 }
