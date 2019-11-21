@@ -2,74 +2,357 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .button {
-
-            background-color: white;
-            border: none;
-            border-radius: 4px;
-            color: black;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: bolder;
-            font-family: 'Open Sans', sans-serif;
-            margin: 25px 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background-color: orange;
-            color: black;
-        }
-
-        .navbar {
-            overflow: hidden;
-            background-color: #333333;
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: #000000;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .navbar a:hover {
-            background: rgb(52, 144, 236);
-            color: black;
-        }
-
-        .topnav-right {
-            float: right;
-        }
-    </style>
+    <title>Manager Home</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic'
+        rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
 </head>
+<style>
+    .button {
+
+        background-color: white;
+        border: none;
+        border-radius: 4px;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        font-family: 'Open Sans', sans-serif;
+        margin: 25px 2px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background-color: rgb(52, 144, 236);
+        color: black;
+    }
+
+    .form-group {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .select {
+        width: 20%;
+        padding: 2px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+    }
+
+    /* table.empSchedule is for the employee schedule view */
+    table.mngSchedule {
+        border: 2px solid #FFFFFF;
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+
+    table.mngSchedule td,
+    table.mngSchedule th {
+        border: 1px solid #FFFFFF;
+        padding: 3px 4px;
+    }
+
+    table.mngSchedule tbody td {
+        font-size: 13px;
+    }
+
+    table.mngSchedule td:nth-child(even) {
+        background: #EBEBEB;
+    }
+
+    table.mngSchedule thead {
+        background: #FFFFFF;
+        border-bottom: 4px solid #333333;
+    }
+
+    table.mngSchedule thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333333;
+        text-align: center;
+        border-left: 2px solid #333333;
+    }
+
+    table.mngSchedule thead th:first-child {
+        border-left: none;
+    }
+
+    table.mngSchedule tfoot {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+        border-top: 4px solid #333333;
+    }
+
+    table.mngSchedule tfoot td {
+        font-size: 14px;
+    }
+
+    .navbar {
+        overflow: hidden;
+        background-color: #333333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .navbar a:hover {
+        background: rgb(52, 144, 236);
+        color: black;
+    }
+
+    .topnav-right {
+        float: right;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        font-family: 'Montserrat', sans-serif;
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 40px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        /* 15% from the top and centered */
+        margin-bottom: 5%;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+        overflow: auto;
+    }
+
+    /* The Close Button */
+    .close {
+        /* Position it in the top right corner outside of the modal */
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    /* Close button on hover */
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+</style>
 
 <body>
+
     <div class="bgimage">
-        <div class="navbar">
-            <div class="topnav-right">
-                <a href="#" class="button" onclick="location.href='index.html';"> Logout</a>
-            </div>
+    </div>
+
+    <div class="navbar">
+        <a href="#" class="button" onclick="document.getElementById('id01').style.display='block'"> Schedule</a>
+        <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Create Event</a>
+        <a href="#" class="button" onclick="document.getElementById('id03').style.display='block'"> Time off
+            requests</a>
+        <a href="#" class="button" onclick="document.getElementById('id04').style.display='block'"> Shift trade
+            requests</a>
+        <div class="topnav-right">
+            <a href="#" class="button" onclick="location.href='index.html';"> Logout</a>
         </div>
     </div>
+
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content Schedule -->
+        <form class="modal-content animate" action="/action_page.php">
+            <table class="mngSchedule">
+            </table>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="submit">Submit</button>
+            </div>
+            <script src="schedulerMng.js"></script>
+        </form>
+    </div>
+
+    <!-- Create New Event Modal -->
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content -->
+        <form class="modal-content animate" onsubmit="return createTheEvent();">
+
+            <div class="form-group">
+                Name of Event: <input type="text" id="eventName" required>
+            </div>
+            <div class="form-group">
+                Date: <input class="form-control" type="date" id="eventDate" required>
+            </div>
+            <div class="form-group">
+                Start time: <select id="eventStart" class="form-control" required>
+                    <option selected value="base">Please Select</option>
+                    <option value="6a">6a</option>
+                    <option value="7a">7a</option>
+                    <option value="8a">8a</option>
+                    <option value="9a">9a</option>
+                    <option value="10a">10a</option>
+                    <option value="11a">11a</option>
+                    <option value="12p">12p</option>
+                    <option value="1p">1p</option>
+                    <option value="2p">2p</option>
+                    <option value="3p">3p</option>
+                    <option value="4p">4p</option>
+                    <option value="5p">5p</option>
+                    <option value="6p">6p</option>
+                    <option value="7p">7p</option>
+                    <option value="8p">8p</option>
+                    <option value="9p">9p</option>
+                    <option value="10p">10p</option>
+                    <option value="11p">11p</option>
+                    <option value="12a">12a</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Stop time: <select class="form-control" id="eventStop" required>
+                    <option selected value="base">Please Select</option>
+                    <option value="7a">7a</option>
+                    <option value="8a">8a</option>
+                    <option value="9a">9a</option>
+                    <option value="10a">10a</option>
+                    <option value="11a">11a</option>
+                    <option value="12p">12p</option>
+                    <option value="1p">1p</option>
+                    <option value="2p">2p</option>
+                    <option value="3p">3p</option>
+                    <option value="4p">4p</option>
+                    <option value="5p">5p</option>
+                    <option value="6p">6p</option>
+                    <option value="7p">7p</option>
+                    <option value="8p">8p</option>
+                    <option value="9p">9p</option>
+                    <option value="10p">10p</option>
+                    <option value="11p">11p</option>
+                    <option value="12a">12a</option>
+                    <option value="1a">1a</option>
+                </select>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <button type="submit" onclick="document.getElementById('id02').style.display='none'"
+                    class="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="id03" class="modal">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content Schedule -->
+        <form class="modal-content animate" action="/action_page.php">
+            <table class="mngSchedule">
+            </table>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id03').style.display='none'"
+                    class="submit">Submit</button>
+            </div>
+            <!-- <script src="schedulerMng.js"></script> -->
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+        var modal3 = document.getElementById('id03');
+        var modal4 = document.getElementById('id04');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal || event.target == modal2 || event.target == modal3 || event.target == modal4) {
+                modal.style.display = "none";
+                modal2.style.display = "none";
+                modal3.style.display = "none";
+                modal4.style.display = "none";
+            }
+        }
+    </script>
+
+
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
+
+    <script src="createEvent.js"></script>
 </body>
 
 </html>
