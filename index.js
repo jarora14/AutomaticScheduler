@@ -1,7 +1,6 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-var emails = ["test1", "test2", "test3"];
-var registered = ["test3"];
+/*
 var firebaseConfig = {
     apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
     authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
@@ -14,15 +13,13 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
-
-
+*/
+//firebase.analytics();
+//test for github
 // Below function Executes on click of login button.
 function validateLogin(){
     var username = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
-    var form = document.getElementById("form1")
     verifyUserCredentials(username, password, function(bool){
       if (bool){
           alert("Login successful");
@@ -43,6 +40,7 @@ function validateLogin(){
     });
 }
 
+
 function writeUserData(userEmail, Password) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
@@ -51,8 +49,10 @@ function writeUserData(userEmail, Password) {
         user_password: Password,
     });
     var key = newUser.key;//unique key
+    return true;
     console.log(key);
 }
+
 
 function checkUserExists(userEmail, Password, callback){
     var database = firebase.database();
@@ -101,6 +101,8 @@ function validateAdmin(){
         return true;
     }
 }
+
+
 
 function validateRegister(){
     var email = document.getElementById("emailRegister").value;

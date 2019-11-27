@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+    <title>Employee Home</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic'
         rel='stylesheet'>
@@ -398,11 +398,25 @@
                 <div class="grid-item"><input type="checkbox" name="12aF" value="12aF"></div>
                 <div class="grid-item"><input type="checkbox" name="12aS" value="12aS"></div>
                 <div class="grid-item"><input type="checkbox" name="12aU" value="12aU"></div>
-
-
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
+                <div>
+                    Approximate number of hours per week: <select id="numHours" class="form-control">
+                        <option selected value="base">Please Select</option>
+                        <option value="0_4">0-4</option>
+                        <option value="4_8">4-8</option>
+                        <option value="8_12">8-12</option>
+                        <option value="12_16">12-16</option>
+                        <option value="16_20">16-20</option>
+                        <option value="20_24">20-24</option>
+                        <option value="24_28">24-28</option>
+                        <option value="28_32">28-32</option>
+                        <option value="32_36">32-36</option>
+                        <option value="36_40">36-40</option>
+                        <option value="40_">40+</option>
+                    </select>
+                </div>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
                     class="cancelbtn">Cancel</button>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
@@ -416,13 +430,14 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm">
+        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm"
+            onSubmit="return saveIssue();">
 
             <div class="form-group">
-                From Date: <input class="form-control" type="date" name="from_date">
+                From Date: <input class="form-control" type="date" id="from_date">
             </div>
             <div class="form-group">
-                To Date: <input class="form-control" type="date" name="to_date">
+                To Date: <input class="form-control" type="date" id="to_date">
             </div>
             <div class="form-group">
                 Start time: <select id="start" class="form-control">
@@ -479,17 +494,26 @@
                 <button type="button" onclick="document.getElementById('id02').style.display='none'"
                     class="submit">Submit</button>
             </div>
-            <script src="requestTimeOff.js"></script>
         </form>
     </div>
 
+    <!-- Employee Schedule -->
     <div id="id03" class="modal">
         <span onclick="document.getElementById('id03').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content View Schedule -->
         <form class="modal-content animate" action="/action_page.php">
             <table class="empSchedule"></table>
-            <script src="schedulerEmp.js"></script>
+        </form>
+    </div>
+
+    <!-- View Events -- NEEDS EDITING -->
+    <div id="id04" class="modal">
+        <span onclick="document.getElementById('id04').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+        <!-- Modal Content View Schedule -->
+        <form class="modal-content animate" action="/action_page.php">
+            <table class="empSchedule"></table>
         </form>
     </div>
 
@@ -500,6 +524,7 @@
             schedule</a>
         <a href="#" class="button" onclick="document.getElementById('id02').style.display='block'"> Request time
             off</a>
+        <a href="#" class="button" onclick="document.getElementById('id04').style.display='block'"> View events </a>
         <div class="topnav-right">
             <a href="#" class="button" onclick="location.href='index.html';"> Logout</a>
         </div>
@@ -510,16 +535,44 @@
         // Get the modal
         var modal = document.getElementById('id01');
         var modal2 = document.getElementById('id02');
-        var modal3 = document.getElementById("id03")
+        var modal3 = document.getElementById('id03');
+        var modal4 = document.getElementById('id04');
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
-            if (event.target == modal || event.target == modal2 || event.target == modal3) {
+            if (event.target == modal || event.target == modal2 || event.target == modal3 || event.target == modal4) {
                 modal.style.display = "none";
                 modal2.style.display = "none";
                 modal3.style.display = "none";
+                modal4.style.display = "none";
             }
         }
     </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
+            authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
+            databaseURL: "https://realtimedatabase-d0a3e.firebaseio.com",
+            projectId: "realtimedatabase-d0a3e",
+            storageBucket: "realtimedatabase-d0a3e.appspot.com",
+            messagingSenderId: "74578194003",
+            appId: "1:74578194003:web:302a3001f78fd4ee84a0a6",
+            measurementId: "G-QVGMEM66ZC"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <!-- <script src="schedulerEmp.js"></script> -->
+    <script src="schedulerEmp.js"></script>
+    <script src="requestTimeOff.js"></script>
 </body>
 
 </html>

@@ -12,16 +12,16 @@ let schedule = [
     { Employee: "Novak Djokovic", Monday: "7:00am - 4:00pm", Tuesday: "Available", Wednesday: "8:00am - 3:00pm", Thursday: "Unavailable", Friday: "Unavailable", Saturday: "Unavailable", Sunday: "Unavailable", }
 ]
 
-const GenerateTableModule = (function() {
+const GenerateTableModule = (function () {
     let table = null;
     let data = [];
-  
-    const initialize = function(tableSelector, arr) {
+
+    const initialize = function (tableSelector, arr) {
         table = tableSelector;
         data = arr;
     };
-  
-    const _generateTableHead = function() {
+
+    const _generateTableHead = function () {
         let thead = table.createTHead();
         let row = thead.insertRow();
         for (let key in data[0]) {
@@ -31,24 +31,29 @@ const GenerateTableModule = (function() {
             row.appendChild(th);
         }
     };
-  
-    const generateTable = function() {
+
+    const generateTable = function () {
         for (let element of data) {
             let row = table.insertRow();
             for (key in element) {
                 let cell = row.insertCell();
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
+                // here sets the content to be editable for non employee columns
+                if(key != "Employee")
+                    cell.setAttribute('contenteditable', true);
             }
         }
         _generateTableHead();
     };
     return { initialize, generateTable };
 })();
-  
+
 let table = document.querySelector("table.mngSchedule");
 
 // Here is where schedule array is being used. 
 GenerateTableModule.initialize(table, schedule)
 
 GenerateTableModule.generateTable();
+
+module.exports = _generateTableHead;
