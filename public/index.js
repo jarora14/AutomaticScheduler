@@ -1,5 +1,7 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
+var key;
+
 /*
 var firebaseConfig = {
     apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
@@ -48,9 +50,8 @@ function writeUserData(userEmail, Password) {
         user_email: userEmail,
         user_password: Password,
     });
-    var key = newUser.key;//unique key
     return true;
-    console.log(key);
+    
 }
 
 
@@ -64,6 +65,7 @@ function checkUserExists(userEmail, Password, callback){
             var childEmail = childData.user_email;
             if (childEmail == userEmail) {
               exists = true;
+              key = childSnapshot.key;
             }
         });
         console.log(exists);
@@ -84,7 +86,10 @@ function verifyUserCredentials(userEmail, Password, callback){
               exists = true;
             }
         });
+        
         console.log(exists);
+        console.log("test");
+
         callback(exists);
     });
 }
@@ -97,6 +102,7 @@ function validateAdmin(){
         return false;
     }else{
         alert("Welcome, Admin.")
+        
         window.location.href = "homeMng.html"; // Redirecting to other page.
         return true;
     }
@@ -125,11 +131,12 @@ function validateRegister(){
             return false;
         }
         else{
+
             writeUserData(email,password);
-            alert("Account Created!")
+            alert("Account Created!");
+         
             window.location.href = "index.html";
             return true;
         }
     });
 }
-//module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};
