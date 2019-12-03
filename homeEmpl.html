@@ -430,13 +430,14 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm">
+        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm"
+            onSubmit="return saveIssue();">
 
             <div class="form-group">
-                From Date: <input class="form-control" type="date" name="from_date">
+                From Date: <input class="form-control" type="date" id="from_date">
             </div>
             <div class="form-group">
-                To Date: <input class="form-control" type="date" name="to_date">
+                To Date: <input class="form-control" type="date" id="to_date">
             </div>
             <div class="form-group">
                 Start time: <select id="start" class="form-control">
@@ -493,27 +494,26 @@
                 <button type="button" onclick="document.getElementById('id02').style.display='none'"
                     class="submit">Submit</button>
             </div>
-            <script src="requestTimeOff.js"></script>
         </form>
     </div>
 
+    <!-- Employee Schedule -->
     <div id="id03" class="modal">
         <span onclick="document.getElementById('id03').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content View Schedule -->
         <form class="modal-content animate" action="/action_page.php">
             <table class="empSchedule"></table>
-            <script src="schedulerEmp.js"></script>
         </form>
     </div>
 
+    <!-- View Events -- NEEDS EDITING -->
     <div id="id04" class="modal">
         <span onclick="document.getElementById('id04').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content View Schedule -->
         <form class="modal-content animate" action="/action_page.php">
             <table class="empSchedule"></table>
-            <!-- <script src="schedulerEmp.js"></script> -->
         </form>
     </div>
 
@@ -547,6 +547,32 @@
             }
         }
     </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.3.0/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
+            authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
+            databaseURL: "https://realtimedatabase-d0a3e.firebaseio.com",
+            projectId: "realtimedatabase-d0a3e",
+            storageBucket: "realtimedatabase-d0a3e.appspot.com",
+            messagingSenderId: "74578194003",
+            appId: "1:74578194003:web:302a3001f78fd4ee84a0a6",
+            measurementId: "G-QVGMEM66ZC"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <!-- <script src="schedulerEmp.js"></script> -->
+    <script src="schedulerEmp.js"></script>
+    <script src="requestTimeOff.js"></script>
 </body>
 
 </html>
