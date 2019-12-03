@@ -235,7 +235,7 @@
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate" id="setAvailibility" onsubmit="return setTheAvailability();">
 
             <div class="grid-container">
                 <div class="grid-item"></div>
@@ -283,7 +283,7 @@
                 </div>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
                     class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                <button type="submit" onclick="document.getElementById('id01').style.display='none'"
                     class="submit">Submit</button>
             </div>
         </form>
@@ -395,6 +395,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     <!-- <script src="schedulerEmp.js"></script> -->
     <script src="schedulerEmp.js"></script>
     <script src="requestTimeOff.js"></script>
+    <script src="setAvail.js"></script>
 </body>
 
 </html>
