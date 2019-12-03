@@ -41,12 +41,13 @@ function validateLogin(){
 }
 
 
-function writeUserData(userEmail, Password) {
+function writeUserData(userEmail, Password, userName) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var newUser = usersRef.push({
         user_email: userEmail,
         user_password: Password,
+        user_name: userName,
     });
     var key = newUser.key;//unique key
     return true;
@@ -108,6 +109,7 @@ function validateRegister(){
     var email = document.getElementById("emailRegister").value;
     var password = document.getElementById("passwordRegister").value;
     var password2 = document.getElementById("passwordRegister2").value;
+    var person = document.getElementById("userNameRegister").value;
     checkUserExists(email,password, function(bool){
         if ( password2 != password){
             alert ("Passwords do not match.");
@@ -125,11 +127,10 @@ function validateRegister(){
             return false;
         }
         else{
-            writeUserData(email,password);
+            writeUserData(email,password,person);
             alert("Account Created!")
             window.location.href = "index.html";
             return true;
         }
     });
 }
-//module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};
