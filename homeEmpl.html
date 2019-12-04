@@ -294,8 +294,7 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" id="requestTimeOffForm"
-            onSubmit="return saveIssue();">
+        <form class="modal-content animate" id="requestTimeOffForm" onSubmit="return saveTheIssue();">
 
             <div class="form-group">
                 From Date: <input class="form-control" type="date" id="from_date">
@@ -313,7 +312,7 @@
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id02').style.display='none'"
                     class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                <button type="submit" onclick="document.getElementById('id02').style.display='none'"
                     class="submit">Submit</button>
             </div>
         </form>
@@ -391,11 +390,10 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         firebase.initializeApp(firebaseConfig);
     </script>
 
-
-    <!-- <script src="schedulerEmp.js"></script> -->
     <script src="schedulerEmp.js"></script>
     <script src="requestTimeOff.js"></script>
     <script src="setAvail.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
