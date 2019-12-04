@@ -11,7 +11,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
     });
     
     /////////////////////////////////////HOME PAGE/////////////////////////////////////
-/** 
+
     it('Check Title is displayed on page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
@@ -295,7 +295,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
 
     /////////////////////////////////////SIGN UP BUTTON/////////////////////////////////////
 
-    */
+    
    it('Click Sign up button and verify user taken to correct Page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
@@ -326,7 +326,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
        await driver.sleep(250);
        await driver.wait(until.elementLocated(By.css('div#id02 > span')), 10000);
-       let element = await driver.findElement(By.css("div#id02 > span"));
+       let element = await driver.findElement(By.css("div#id03 > form > div:nth-of-type(3) > button"));
        driver.executeScript("arguments[0].click()",element);
        await driver.sleep(250);
        let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
