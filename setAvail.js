@@ -1,6 +1,6 @@
 function setTheAvailability() {
     console.log("method is called");
-    var mondayStart = document.getElementById('mondaytStart').value;
+    var mondayStart = document.getElementById('mondayStart').value;
     var mondayEnd = document.getElementById('mondayStop').value;
     var tuesdayStart = document.getElementById('tuesdayStart').value;
     var tuesdayEnd = document.getElementById('tuesdayStop').value;
