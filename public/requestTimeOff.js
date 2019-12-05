@@ -1,9 +1,10 @@
 function requestTimeOff() {
     console.log("1");
-    document.getElementById('requestTimeOffForm').addEventListener('submit', saveTheIssue);
+    document.getElementById('requestTimeOffForm').addEventListener('submit', saveTheRequest);
+    console.log(userKey);
 }
 
-function saveTheIssue() {
+function saveTheRequest() {
     var requestStart = document.getElementById('from_date').value;
     var requestEnd = document.getElementById('to_date').value;
     //var requestDesc = document.getElementById('requestDescInput').value;
@@ -11,10 +12,10 @@ function saveTheIssue() {
     var timeEnd = document.getElementById('end').value;
     //var submitted = document.getElementById('submitted');
     //var x = 1;
-    console.log("hits");
+    console.log(userKey);
     write(requestStart, requestEnd, timeStart, timeEnd);
 
-    var sendData = checkDate(requestStart) && checkDate(requestEnd);
+    //var sendData = checkDate(requestStart) && checkDate(requestEnd);
 
     // if (requestDesc == "") {
     //     requestDesc = "No reason given";
@@ -50,17 +51,17 @@ function write(start, end, tstart, tend) {
     console.log(start + " " + end + " " + tstart + " " + tend + " " + userKey);
     var database = firebase.database();
     var requestRef = database.ref('Requests');
-    var key = getKey();
+    //var key = getKey();
     var newRequest = requestRef.push({
         date_start: start,
         date_end: end,
         time_start: tstart,
         time_end: tend,
-        user: key,
+       // user: key,
     });
 }
 
-
+/*
 function sendData(reqStart, reqEnd, reqDesc) {
 
     var reqS = reqStart;
@@ -69,7 +70,8 @@ function sendData(reqStart, reqEnd, reqDesc) {
 
     //ToDo: send data to firebase
 }
-
+*/
+/*
 function checkDate(date) {
 
     var dates = date.split("/");
@@ -100,3 +102,4 @@ function checkDate(date) {
 
     return true;
 }
+*/

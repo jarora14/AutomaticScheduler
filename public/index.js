@@ -1,6 +1,6 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-var userKey;
+var userKey = "DEFAULT";
 /*
 var firebaseConfig = {
     apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
@@ -18,9 +18,7 @@ firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 //test for github
 // Below function Executes on click of login button.
-function getKey() {
-    return userKey;
-}
+
 
 function validateLogin() {
     var username = document.getElementById("emailLogin").value;
@@ -87,7 +85,7 @@ function verifyUserCredentials(userEmail, Password, callback) {
             var childEmail = childData.user_email;
             var childPassword = childData.user_password;
             if (childEmail == userEmail && childPassword == Password) {
-                console.log("test1");
+                // console.log("test1");
                 exists = true;
                 userKey = childSnapshot.key;
                 console.log(userKey);
