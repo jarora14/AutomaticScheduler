@@ -25,8 +25,9 @@ function validateLogin() {
     var password = document.getElementById("passwordLogin").value;
     verifyUserCredentials(username, password, function (bool) {
         if (bool) {
-            alert("Login successful");
+            alert("Login successful " + userKey);
             window.location.href = "homeEmpl.html"; // Redirecting to other page.
+            console.log(userKey);
             return true;
         }
         else {
@@ -41,6 +42,7 @@ function validateLogin() {
             }
         }
     });
+    
 }
 
 
@@ -79,6 +81,7 @@ function verifyUserCredentials(userEmail, Password, callback) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
+    var localKey;
     usersRef.once("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var childData = childSnapshot.val();
@@ -87,13 +90,22 @@ function verifyUserCredentials(userEmail, Password, callback) {
             if (childEmail == userEmail && childPassword == Password) {
                 // console.log("test1");
                 exists = true;
-                userKey = childSnapshot.key;
-                console.log(userKey);
+                localKey = childSnapshot.key;
+                setUserKey(localKey);
+                console.log(localKey);
             }
         });
         console.log(exists);
         callback(exists);
     });
+}
+
+function setUserKey(theKey){
+    userKey = theKey;
+}
+
+function getUserKey(){
+    return userKey;
 }
 
 function validateAdmin() {
@@ -141,5 +153,5 @@ function validateRegister() {
     });
 }
 
-//module.exports { userKey };
+// module.exports [userKey];
 //module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};

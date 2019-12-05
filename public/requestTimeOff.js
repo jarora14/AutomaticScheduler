@@ -1,7 +1,8 @@
+var key;
 function requestTimeOff() {
     console.log("1");
     document.getElementById('requestTimeOffForm').addEventListener('submit', saveTheRequest);
-    console.log(userKey);
+    waitForElement();
 }
 
 function saveTheRequest() {
@@ -12,7 +13,7 @@ function saveTheRequest() {
     var timeEnd = document.getElementById('end').value;
     //var submitted = document.getElementById('submitted');
     //var x = 1;
-    console.log(userKey);
+    console.log(getUserKey());
     write(requestStart, requestEnd, timeStart, timeEnd);
 
     //var sendData = checkDate(requestStart) && checkDate(requestEnd);
@@ -48,19 +49,26 @@ function saveTheRequest() {
 }
 
 function write(start, end, tstart, tend) {
-    console.log(start + " " + end + " " + tstart + " " + tend + " " + userKey);
+    console.log(start + " " + end + " " + tstart + " " + tend + " " + getUserKey());
     var database = firebase.database();
     var requestRef = database.ref('Requests');
-    //var key = getKey();
     var newRequest = requestRef.push({
         date_start: start,
         date_end: end,
         time_start: tstart,
         time_end: tend,
-       // user: key,
+        user: key,
     });
 }
 
+function waitForElement(){
+    if(userKey != "DEFAULT") {
+        key = userKey;
+    }
+    else {
+        setTimeout(waitForElement, 250);
+    }
+}
 /*
 function sendData(reqStart, reqEnd, reqDesc) {
 
