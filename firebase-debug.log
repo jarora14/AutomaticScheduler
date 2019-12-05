@@ -52,3 +52,28 @@
 [debug] [2019-11-27T16:14:41.544Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-11-27T16:23:28.039Z] ----------------------------------------------------------------------
+[debug] [2019-11-27T16:23:28.041Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-11-27T16:23:28.041Z] CLI Version:   7.7.0
+[debug] [2019-11-27T16:23:28.041Z] Platform:      darwin
+[debug] [2019-11-27T16:23:28.041Z] Node Version:  v10.15.3
+[debug] [2019-11-27T16:23:28.043Z] Time:          Wed Nov 27 2019 10:23:28 GMT-0600 (Central Standard Time)
+[debug] [2019-11-27T16:23:28.043Z] ----------------------------------------------------------------------
+[debug] [2019-11-27T16:23:28.043Z] 
+[debug] [2019-11-27T16:23:28.053Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-27T16:23:28.053Z] > authorizing via signed-in user
+[debug] [2019-11-27T16:23:28.053Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-11-27T16:23:28.055Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-11-27T16:23:28.569Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-27T16:23:28.571Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-11-27T16:23:29.196Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-11-27T16:23:29.200Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-11-27T16:23:29.813Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
