@@ -203,7 +203,7 @@ span.psw {
 }
           
 .button:hover{
-      background-color: orange;
+      background-color: rgb(52, 144, 236);
       color: black;
 }
 @-webkit-keyframes animatezoom {

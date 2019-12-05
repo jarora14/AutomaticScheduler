@@ -3,12 +3,29 @@
   "version": "1.0.0",
   "description": "this is our app :)",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "chromedriver": "^78.0.1",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "mocha --recursive --timeout 10000",
+    "coverage": "nyc npm run test",
+    "jest-test": "jest --coverage"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "check-coverage": true,
+    "exclude": [
+      "ogStuffFromMilindh/**",
+      "coverage/**",
+      "public/**"
+    ]
   },
   "repository": {
     "type": "git",
