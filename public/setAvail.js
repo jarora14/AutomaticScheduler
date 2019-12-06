@@ -1,3 +1,10 @@
+var key;
+
+function setAvailability(){
+    document.getElementById('setAvailibilityForm').addEventListener('submit', setTheAvailability);
+    waitForElement();
+}
+
 function setTheAvailability() {
     console.log("method is called");
     var mondayStart = document.getElementById('mondayStart').value;
@@ -15,6 +22,11 @@ function setTheAvailability() {
     var sundayStart = document.getElementById('sundayStart').value;
     var sundayEnd = document.getElementById('sundayStop').value;
     var requestDesired = document.getElementById('numHours').value;
+
+    key = sessionStorage.getItem('key');
+    console.log(key);
+    console.log("past the key part");
+    
     var database = firebase.database();
     var eventRef = database.ref('Availability');
     var newEvent = eventRef.push({
@@ -33,6 +45,8 @@ function setTheAvailability() {
         suS: sundayStart,
         suE: sundayEnd,
         desiredHours: requestDesired,
+        user: key,
     });
+    alert("Availability Submitted Successfully");
     return true;
 }
