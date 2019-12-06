@@ -26,7 +26,7 @@ function validateLogin() {
     verifyUserCredentials(username, password, function (bool) {
         if (bool) {
             alert("Login successful " + userKey);
-            window.location.href = "homeEmpl.html"; // Redirecting to other page.
+            window.location.href = "homeEmpl.html" + "?" + userKey; // Redirecting to other page.
             console.log(userKey);
             return true;
         }
@@ -102,6 +102,7 @@ function verifyUserCredentials(userEmail, Password, callback) {
 
 function setUserKey(theKey){
     userKey = theKey;
+
 }
 
 function getUserKey(){
