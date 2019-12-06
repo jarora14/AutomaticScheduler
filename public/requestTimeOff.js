@@ -1,5 +1,4 @@
-var key = document.getElementById("rel");
-var theKey;
+var key;
 function requestTimeOff() {
     document.getElementById('requestTimeOffForm').addEventListener('submit', saveTheRequest);
     waitForElement();
@@ -30,7 +29,7 @@ function write(start, end, tstart, tend) {
         date_end: end,
         time_start: tstart,
         time_end: tend,
-        user: theKey,
+        user: key,
     });
 }
 
