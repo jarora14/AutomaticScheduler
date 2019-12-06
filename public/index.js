@@ -1,33 +1,13 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-var userKey = "DEFAULT";
-/*
-var firebaseConfig = {
-    apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
-    authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
-    databaseURL: "https://realtimedatabase-d0a3e.firebaseio.com",
-    projectId: "realtimedatabase-d0a3e",
-    storageBucket: "realtimedatabase-d0a3e.appspot.com",
-    messagingSenderId: "74578194003",
-    appId: "1:74578194003:web:302a3001f78fd4ee84a0a6",
-    measurementId: "G-QVGMEM66ZC"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-*/
-//firebase.analytics();
-//test for github
-// Below function Executes on click of login button.
-
 
 function validateLogin() {
     var username = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
     verifyUserCredentials(username, password, function (bool) {
         if (bool) {
-            alert("Login successful " + userKey);
-            window.location.href = "homeEmpl.html" + "?" + userKey; // Redirecting to other page.
-            console.log(userKey);
+            alert("Login successful");
+            window.location.href = "homeEmpl.html"; // Redirecting to other page.
             return true;
         }
         else {
@@ -54,9 +34,8 @@ function writeUserData(userEmail, Password, userName) {
         user_password: Password,
         user_name: userName,
     });
-    var key = newUser.key;//unique key
     return true;
-    console.log(key);
+    
 }
 
 
@@ -88,25 +67,17 @@ function verifyUserCredentials(userEmail, Password, callback) {
             var childEmail = childData.user_email;
             var childPassword = childData.user_password;
             if (childEmail == userEmail && childPassword == Password) {
-                // console.log("test1");
                 exists = true;
-                localKey = childSnapshot.key;
-                setUserKey(localKey);
+                localKey = childSnapshot.key; 
                 console.log(localKey);
+                sessionStorage.setItem('key', localKey);
+                var test = sessionStorage.getItem('key');
+                console.log(test);
             }
-        });
+        });        
         console.log(exists);
         callback(exists);
     });
-}
-
-function setUserKey(theKey){
-    userKey = theKey;
-
-}
-
-function getUserKey(){
-    return userKey;
 }
 
 function validateAdmin() {
@@ -154,5 +125,3 @@ function validateRegister() {
     });
 }
 
-// module.exports [userKey];
-//module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};
