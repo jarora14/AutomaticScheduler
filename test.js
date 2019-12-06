@@ -312,10 +312,10 @@ describe('Automatic Scheduler Sign-in Page', function () {
         let titleText;
         await title.getText().then(function (text) {
             console.log("Label Found: ",text);
-            console.log("Label Desired: ","Verify Password");
+            console.log("Label Desired: ","Create Password");
             titleText = text;
         });
-        assert.equal(titleText, 'Verify Password');
+        assert.equal(titleText, 'Create Password');
     });
 
     it('Click Sign up button and verify user taken to correct Page...', async function() {
