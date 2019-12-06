@@ -20,7 +20,7 @@
         <h1>Catering a Fresco</h1>
         <div class="jumbotron">
           <h3>Set Availability:</h3>
-          <form id="setAvailabilityForm">
+          <form id="setAvailabilityForm" onSubmit="event.preventDefault();return setTheAvailability();">
             <div class="form-group">
               <label for="mondayStartInput">Monday Start:</label>
               <select id ="mondayStartInput" class="form-control">

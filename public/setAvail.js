@@ -1,10 +1,5 @@
 var key;
 
-function setAvailability(){
-    document.getElementById('setAvailibilityForm').addEventListener('submit', setTheAvailability);
-    waitForElement();
-}
-
 function setTheAvailability() {
     console.log("method is called");
     var mondayStart = document.getElementById('mondayStart').value;
