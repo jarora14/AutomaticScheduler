@@ -1,7 +1,6 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-var key;
-
+var userKey = "DEFAULT";
 /*
 var firebaseConfig = {
     apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
@@ -19,53 +18,57 @@ firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 //test for github
 // Below function Executes on click of login button.
-function validateLogin(){
+
+
+function validateLogin() {
     var username = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
-    verifyUserCredentials(username, password, function(bool){
-      if (bool){
-          alert("Login successful");
-          window.location.href = "homeEmpl.html"; // Redirecting to other page.
-          return true;
-      }
-      else{
-          attemptLogin --;// Decrementing by one.
-          alert("You have left "+attemptLogin+" attempt;");
-          // Disabling fields after 3 attempts.
-          if( attemptLogin == 0){
-              document.getElementById("emailLogin").disabled = true;
-              document.getElementById("passwordLogin").disabled = true;
-              document.getElementById("submit").disabled = true;
-          return false;
-          }
-      }
+    verifyUserCredentials(username, password, function (bool) {
+        if (bool) {
+            alert("Login successful " + userKey);
+            window.location.href = "homeEmpl.html"; // Redirecting to other page.
+            console.log(userKey);
+            return true;
+        }
+        else {
+            attemptLogin--;// Decrementing by one.
+            alert("You have left " + attemptLogin + " attempt;");
+            // Disabling fields after 3 attempts.
+            if (attemptLogin == 0) {
+                document.getElementById("emailLogin").disabled = true;
+                document.getElementById("passwordLogin").disabled = true;
+                document.getElementById("submit").disabled = true;
+                return false;
+            }
+        }
     });
+    
 }
 
 
-function writeUserData(userEmail, Password) {
+function writeUserData(userEmail, Password, userName) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var newUser = usersRef.push({
         user_email: userEmail,
         user_password: Password,
+        user_name: userName,
     });
     return true;
     
 }
 
 
-function checkUserExists(userEmail, Password, callback){
+function checkUserExists(userEmail, Password, callback) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
-    usersRef.once("value", function(snapshot){
-        snapshot.forEach(function(childSnapshot){
+    usersRef.once("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
             var childData = childSnapshot.val();
             var childEmail = childData.user_email;
             if (childEmail == userEmail) {
-              exists = true;
-              key = childSnapshot.key;
+                exists = true;
             }
         });
         console.log(exists);
@@ -73,17 +76,22 @@ function checkUserExists(userEmail, Password, callback){
     });
 }
 
-function verifyUserCredentials(userEmail, Password, callback){
+function verifyUserCredentials(userEmail, Password, callback) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
-    usersRef.once("value", function(snapshot){
-        snapshot.forEach(function(childSnapshot){
+    var localKey;
+    usersRef.once("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
             var childData = childSnapshot.val();
             var childEmail = childData.user_email;
             var childPassword = childData.user_password;
             if (childEmail == userEmail && childPassword == Password) {
-              exists = true;
+                // console.log("test1");
+                exists = true;
+                localKey = childSnapshot.key;
+                setUserKey(localKey);
+                console.log(localKey);
             }
         });
         
@@ -94,13 +102,21 @@ function verifyUserCredentials(userEmail, Password, callback){
     });
 }
 
-function validateAdmin(){
+function setUserKey(theKey){
+    userKey = theKey;
+}
+
+function getUserKey(){
+    return userKey;
+}
+
+function validateAdmin() {
     var adminCode = document.getElementById("adminPass").value;
     console.log("TEST");
-    if (adminCode != adminSetCode){
+    if (adminCode != adminSetCode) {
         alert("Invalid Admin credentials")
         return false;
-    }else{
+    } else {
         alert("Welcome, Admin.")
         
         window.location.href = "homeMng.html"; // Redirecting to other page.
@@ -110,13 +126,14 @@ function validateAdmin(){
 
 
 
-function validateRegister(){
+function validateRegister() {
     var email = document.getElementById("emailRegister").value;
     var password = document.getElementById("passwordRegister").value;
     var password2 = document.getElementById("passwordRegister2").value;
-    checkUserExists(email,password, function(bool){
-        if ( password2 != password){
-            alert ("Passwords do not match.");
+    var person = document.getElementById("userNameRegister").value;
+    checkUserExists(email, password, function (bool) {
+        if (password2 != password) {
+            alert("Passwords do not match.");
             return false;
         }
         //Ignore Email Authentication for now. Will add firebase auth
@@ -126,17 +143,18 @@ function validateRegister(){
             return false;
         }
         */
-        else if (bool){
+        else if (bool) {
             alert("Email already registered.")
             return false;
         }
-        else{
-
-            writeUserData(email,password);
-            alert("Account Created!");
-         
+        else {
+            writeUserData(email, password, person);
+            alert("Account Created!")
             window.location.href = "index.html";
             return true;
         }
     });
 }
+
+// module.exports [userKey];
+//module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};

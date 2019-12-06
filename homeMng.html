@@ -250,52 +250,10 @@
                 Date: <input class="form-control" type="date" id="eventDate" required>
             </div>
             <div class="form-group">
-                Start time: <select id="eventStart" class="form-control" required>
-                    <option selected value="base">Please Select</option>
-                    <option value="6a">6a</option>
-                    <option value="7a">7a</option>
-                    <option value="8a">8a</option>
-                    <option value="9a">9a</option>
-                    <option value="10a">10a</option>
-                    <option value="11a">11a</option>
-                    <option value="12p">12p</option>
-                    <option value="1p">1p</option>
-                    <option value="2p">2p</option>
-                    <option value="3p">3p</option>
-                    <option value="4p">4p</option>
-                    <option value="5p">5p</option>
-                    <option value="6p">6p</option>
-                    <option value="7p">7p</option>
-                    <option value="8p">8p</option>
-                    <option value="9p">9p</option>
-                    <option value="10p">10p</option>
-                    <option value="11p">11p</option>
-                    <option value="12a">12a</option>
-                </select>
+                Start time: <input class="form-control" type="time" id="eventStart" required>
             </div>
             <div class="form-group">
-                Stop time: <select class="form-control" id="eventStop" required>
-                    <option selected value="base">Please Select</option>
-                    <option value="7a">7a</option>
-                    <option value="8a">8a</option>
-                    <option value="9a">9a</option>
-                    <option value="10a">10a</option>
-                    <option value="11a">11a</option>
-                    <option value="12p">12p</option>
-                    <option value="1p">1p</option>
-                    <option value="2p">2p</option>
-                    <option value="3p">3p</option>
-                    <option value="4p">4p</option>
-                    <option value="5p">5p</option>
-                    <option value="6p">6p</option>
-                    <option value="7p">7p</option>
-                    <option value="8p">8p</option>
-                    <option value="9p">9p</option>
-                    <option value="10p">10p</option>
-                    <option value="11p">11p</option>
-                    <option value="12a">12a</option>
-                    <option value="1a">1a</option>
-                </select>
+                Stop time: <input class="form-control" id="eventStop" type="time" required>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
@@ -367,6 +325,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     </script>
 
     <script src="createEvent.js"></script>
+    <script src="schedulerMng.js"></script>
 </body>
 
 </html>
