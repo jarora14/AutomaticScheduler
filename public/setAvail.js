@@ -24,7 +24,7 @@ function setTheAvailability() {
     
     var database = firebase.database();
     var eventRef = database.ref('Availability');
-    var newEvent = eventRef.push({
+    var newEvent = eventRef.child(key).set({
         mS: mondayStart,
         mE: mondayEnd,
         tS: tuesdayStart,
