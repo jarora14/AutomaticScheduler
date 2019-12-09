@@ -235,7 +235,7 @@
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" id="setAvailibility" onsubmit="return setTheAvailability();">
+        <form class="modal-content animate" id="setAvailibilityForm" onsubmit="event.preventDefault();return setTheAvailability();">
 
             <div class="grid-container">
                 <div class="grid-item"></div>
@@ -294,7 +294,7 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" id="requestTimeOffForm" onSubmit="return saveTheRequest();">
+        <form class="modal-content animate" onSubmit="event.preventDefault();return saveTheRequest();">
 
             <div class="form-group">
                 From Date: <input class="form-control" type="date" id="from_date">
@@ -323,7 +323,7 @@
         <span onclick="document.getElementById('id03').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content View Schedule -->
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate">
             <table class="empSchedule"></table>
         </form>
     </div>

@@ -15,6 +15,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Check Title is displayed on page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
@@ -34,8 +35,10 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Admin button and verify user taken to correct Page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(2) > label > b')), 10000);
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(2) > button')), 10000);
         
@@ -54,11 +57,14 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Admin button, then click cancel button, verify user can see homepage...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('div#id03 > form > div:nth-of-type(3) > button')), 10000);
         let element = await driver.findElement(By.css("div#id03 > form > div:nth-of-type(3) > button"));
         driver.executeScript("arguments[0].click()",element);
+        await driver.sleep(250);
         let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
         let titleText;
         await title.getText().then(function (text) {
@@ -74,25 +80,32 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Enter Correct Admin password and be brought to admin page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#adminPass')), 10000);
         await driver.findElement(By.css('input#adminPass')).sendKeys('1234',Key.RETURN);
         await driver.wait(until.alertIsPresent());
         await driver.switchTo().alert().accept();
-        let title = await driver.findElement(By.css('html > body > div > div > div > a'));
+        await driver.sleep(250);
+        let title = await driver.findElement(By.css('html > body > div:nth-of-type(2) > a:nth-of-type(2)'));
         let titleText;
         await title.getText().then(function (text) {
             console.log("Button Label found: ",text);
             titleText = text;
-            console.log("Button Label expected: ","Logout");
+            console.log("Button Label expected: ","Create Event");
          });
-        assert.equal(titleText, 'Logout');
+        assert.equal(titleText, 'Create Event');
     });
+
+
     //TODO UPDATE WHEN ADMIN PAGE IS DEVELOPED
     it('Enter Incorrect Admin password, should be notified the credentials are invalid...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(2)')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#adminPass')), 10000);
         await driver.findElement(By.css('input#adminPass')).sendKeys('123',Key.RETURN);
         await driver.wait(until.alertIsPresent());
@@ -107,8 +120,10 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Click Login button and verify user taken to correct Page...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('div#id01 > form > div:nth-of-type(2) > label > b')), 10000);
         await driver.wait(until.elementLocated(By.css('button#submit')), 10000);
         await driver.wait(until.elementLocated(By.css('div#id01 > form')), 10000);
@@ -122,15 +137,18 @@ describe('Automatic Scheduler Sign-in Page', function () {
          });
         assert.equal(titleText, 'Email');
     });
-
+ 
     it('Click Login button, then click cancel button, verify user can see homepage...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a')), 10000);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('div#id01 > form > div:nth-of-type(3) > button')), 10000);
         let element = await driver.findElement(By.css("div#id01 > form > div:nth-of-type(3) > button"));
         driver.executeScript("arguments[0].click()",element);
+        await driver.sleep(250);
         let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
         let titleText;
         await title.getText().then(function (text) {
@@ -141,30 +159,36 @@ describe('Automatic Scheduler Sign-in Page', function () {
          });
         assert.equal(titleText, 'OVERTURE SCHEDULING');
     });
-    
+ 
     it('Login with valid user and verify user is brough to employee home screen...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('dont',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('delete',Key.RETURN);
+    
         await driver.wait(until.alertIsPresent());
         await driver.switchTo().alert().accept();
-        let title = await driver.findElement(By.css('html > body > div > div:nth-of-type(4) > a:nth-of-type(2)'));
+        await driver.sleep(250);
+        let title = await driver.findElement(By.css('html > body > div:nth-of-type(6) > a'));
         let titleText;
         await title.getText().then(function (text) {
             console.log("Button Label Found: ",text);
             titleText = text;
-            console.log("Button Label Expected: ",'View schedule');
+            console.log("Button Label Expected: ",'Set availablility');
          });
-        assert.equal(titleText, 'View schedule');
+        assert.equal(titleText, 'Set availability');
     });
-
+  
     it('Attempt Login with invalid Credentials, accept alert and verify user is not logged in...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
@@ -184,7 +208,9 @@ describe('Automatic Scheduler Sign-in Page', function () {
     it('Attempt Login with invalid Credentials once, verify 2 attempts left...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
@@ -194,11 +220,13 @@ describe('Automatic Scheduler Sign-in Page', function () {
         console.log("Alert Desired: ","You have left 2 attempt;");
         assert.equal(text, 'You have left 2 attempt;');
     });
-
-    it('Attempt Login with invalid Credentials once, verify 1 attempts left...', async function() {
+ 
+    it('Attempt Login with invalid Credentials 2 times, verify 1 attempts left...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
@@ -213,11 +241,13 @@ describe('Automatic Scheduler Sign-in Page', function () {
         console.log("Alert Desired: ","You have left 1 attempt;");
         assert.equal(text, 'You have left 1 attempt;');
     });
-
-    it('Attempt Login with invalid Credentials once, verify 0 attempts left...', async function() {
+ 
+    it('Attempt Login with invalid Credentials 3 times, verify 0 attempts left...', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
@@ -236,10 +266,12 @@ describe('Automatic Scheduler Sign-in Page', function () {
         assert.equal(text, 'You have left 0 attempt;');
     });
 
-    it('Attempt Login with invalid Credentials once, verify 0 attempts left...', async function() {
+    it('Attempt Login with invalid Credentials 3 times, Login button disabled', async function() {
         // Load the page
         await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
         await driver.findElement(By.css('input#emailLogin')).sendKeys('invalid',Key.RETURN);
         await driver.findElement(By.css('input#passwordLogin')).sendKeys('credentials',Key.RETURN);
@@ -264,10 +296,49 @@ describe('Automatic Scheduler Sign-in Page', function () {
     /////////////////////////////////////SIGN UP BUTTON/////////////////////////////////////
 
     
+   it('Click Sign up button and verify user taken to correct Page...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(3) > b')), 10000);
+        
+        let title = await driver.findElement(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(3) > b'));
+        let titleText;
+        await title.getText().then(function (text) {
+            console.log("Label Found: ",text);
+            console.log("Label Desired: ","Create Password");
+            titleText = text;
+        });
+        assert.equal(titleText, 'Create Password');
+    });
 
+    it('Click Sign up button and verify user taken to correct Page...', async function() {
+        // Load the page
+       await driver.get('http://127.0.0.1:5000');
+       await driver.sleep(250);
+       await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+       await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+       await driver.sleep(250);
+       await driver.wait(until.elementLocated(By.css('div#id02 > span')), 10000);
+       let element = await driver.findElement(By.css("div#id03 > form > div:nth-of-type(3) > button"));
+       driver.executeScript("arguments[0].click()",element);
+       await driver.sleep(250);
+       let title = await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > h1'));
+       let titleText;
+       await title.getText().then(function (text) {
+           console.log("Title Found: ",text);
+           console.log("Title Desired: ","OVERTURE SCHEDULING");
+           titleText = text;
 
-
-
+        });
+       assert.equal(titleText, 'OVERTURE SCHEDULING');
+    });
 
 
     // close the browser after running tests

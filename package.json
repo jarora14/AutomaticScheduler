@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "chromedriver": "^78.0.1",
+    "file-system": "^2.2.2",
     "selenium-webdriver": "^4.0.0-alpha.5"
   },
   "devDependencies": {

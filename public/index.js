@@ -1,24 +1,5 @@
 var attemptLogin = 3; // Variable to count number of attempts.
 var adminSetCode = 1234;
-var userKey = "DEFAULT";
-/*
-var firebaseConfig = {
-    apiKey: "AIzaSyADFcVF0FfSzIyZjCL0T8Wf1jH9NA_tPqM",
-    authDomain: "realtimedatabase-d0a3e.firebaseapp.com",
-    databaseURL: "https://realtimedatabase-d0a3e.firebaseio.com",
-    projectId: "realtimedatabase-d0a3e",
-    storageBucket: "realtimedatabase-d0a3e.appspot.com",
-    messagingSenderId: "74578194003",
-    appId: "1:74578194003:web:302a3001f78fd4ee84a0a6",
-    measurementId: "G-QVGMEM66ZC"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-*/
-//firebase.analytics();
-//test for github
-// Below function Executes on click of login button.
-
 
 function validateLogin() {
     var username = document.getElementById("emailLogin").value;
@@ -41,6 +22,7 @@ function validateLogin() {
             }
         }
     });
+    
 }
 
 
@@ -52,9 +34,8 @@ function writeUserData(userEmail, Password, userName) {
         user_password: Password,
         user_name: userName,
     });
-    var key = newUser.key;//unique key
     return true;
-    console.log(key);
+    
 }
 
 
@@ -79,18 +60,21 @@ function verifyUserCredentials(userEmail, Password, callback) {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var exists = false;
+    var localKey;
     usersRef.once("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var childData = childSnapshot.val();
             var childEmail = childData.user_email;
             var childPassword = childData.user_password;
             if (childEmail == userEmail && childPassword == Password) {
-                // console.log("test1");
                 exists = true;
-                userKey = childSnapshot.key;
-                console.log(userKey);
+                localKey = childSnapshot.key; 
+                console.log(localKey);
+                sessionStorage.setItem('key', localKey);
+                var test = sessionStorage.getItem('key');
+                console.log(test);
             }
-        });
+        });        
         console.log(exists);
         callback(exists);
     });
@@ -141,5 +125,3 @@ function validateRegister() {
     });
 }
 
-//module.exports { userKey };
-//module.exports = {validateRegister,validateAdmin,validateLogin,verifyUserCredentials,writeUserData,checkUserExists};
