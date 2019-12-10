@@ -35,13 +35,20 @@ function createTheEvent() {
     })
 
     
-    var events = [];
+    scheduleRef.remove();
+    var scheduleRefer  = database.ref('Schedule');
+
+    //var events = [];
     var j = 0;
     var currUser = users[j];
+    console.log(users[j]);
     eventRef.once("value", function(snapshot){
         snapshot.forEach(function(childSnapshot){
+            if (j == 0) {
+                currUser = users[1];
+            }
             eventData = childSnapshot.val();
-            var newSched = scheduleRef.push({
+            var newSched = scheduleRefer.push({
                 event: eventData.eventName,
                 //weekDay: eventData.eventDate.getDay(),
                 scheduledEmp: currUser,
@@ -51,7 +58,7 @@ function createTheEvent() {
                 //push days and events
             });
             j++;
-            if (j>=i) {
+            if (j>=(i-1)) {
                 j = 0;
             } 
             currUser = users[j];
