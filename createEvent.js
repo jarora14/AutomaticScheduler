@@ -34,10 +34,13 @@ function createTheEvent() {
         })
     })
 
+    scheduleRef.remove();
+
+    var scheduleRefere = database.ref('Schedule');
     var i;
     for (i = 0; i < events.length; i++) {
         var weekDay = events[i].date.getDay();
-        var newSched = scheduleRef.push({
+        var newSched = scheduleRefer.push({
             event: events[i].eventName,
             weekDay: weekDay,
             scheduledEmp: users[i].user_name,
