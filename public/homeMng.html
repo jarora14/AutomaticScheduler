@@ -264,12 +264,18 @@
             <table class="mngSchedule">
             </table>
             <div class="container" style="background-color:#f1f1f1">
+                <ul id="output"></ul>
                 <button type="button" onclick="document.getElementById('id03').style.display='none'"
                     class="cancelbtn">Cancel</button>
                 <button type="button" onclick="document.getElementById('id03').style.display='none'"
                     class="submit">Submit</button>
             </div>
-            <!-- <script src="schedulerMng.js"></script> -->
+            <script src="schedulerMng.js"></script>
+            <script>
+                window.onload = function() {
+                    pullRequests();
+                };
+            </script>
         </form>
     </div>
 
