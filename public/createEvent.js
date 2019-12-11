@@ -36,8 +36,43 @@ function createTheEvent() {
     })
 
     
-    scheduleRef.remove();
+
     var scheduleRefer  = database.ref('Schedule');
+    scheduleRef.remove();
+
+    /*
+    database.once("value", function(snapshot){
+        if(!snapshot.hasChild('Schedule)') {
+            var b = 0;
+            var currUser = users[b];
+            console.log(users[b]);
+            eventRef.once("value", function(snapshot){
+                snapshot.forEach(function(childSnapshot){
+                    if (b == 0) {
+                        currUser = users[1];
+                    }
+                    eventData = childSnapshot.val();
+                    var newSched = scheduleRefer.push({
+                        event: eventData.eventName,
+                        //weekDay: eventData.eventDate.getDay(),
+                        scheduledEmp: currUser,
+                        eventDate: eventData.eventDate,
+                        startTime: eventData.eventStart,
+            
+                        //push days and events
+                    });
+                    b++;
+                    if (b>=(i-1)) {
+                        b = 0;
+                    } 
+                    currUser = users[b];
+                })
+            })
+        }
+    })
+    */
+
+
 
     //var events = [];
     var j = 0;

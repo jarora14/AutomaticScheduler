@@ -3,41 +3,55 @@ function makeSchedule() {
     var database = firebase.database();
     var usersRef = database.ref('Users');
     var eventsRef = database.ref('Events');
-    var availRef = database.ref('Availability');
     var scheduleRef = database.ref('Schedule');
 
     
-    var users = [];
     var i = 0;
     usersRef.once("value", function(snapshot){
+        i = snapshot.numChildren();
+    })
+
+    var users = [i];
+    var k = 0;
+    usersRef.once("value", function(snapshot){
         snapshot.forEach(function(childSnapshot){
-            users[i] = childSnapshot.val();
-            i++;
+            var userData = childSnapshot.val();
+            users[k] = userData.user_name;
+            console.log(users[k]);
+            k++;
         })
     })
+
     
-    var events = [];
+
+    var scheduleRefer  = database.ref('Schedule');
+    scheduleRef.remove();
+
+    var j = 0;
+    var currUser = users[j];
+    console.log(users[j]);
     eventsRef.once("value", function(snapshot){
         snapshot.forEach(function(childSnapshot){
-            events[i] = childSnapshot.val();
-            i++;
+            if (j == 0) {
+                currUser = users[1];
+            }
+            eventData = childSnapshot.val();
+            var newSched = scheduleRefer.push({
+                event: eventData.eventName,
+                //weekDay: eventData.eventDate.getDay(),
+                scheduledEmp: currUser,
+                eventDate: eventData.eventDate,
+                startTime: eventData.eventStart,
+    
+                //push days and events
+            });
+            j++;
+            if (j>=(i-1)) {
+                j = 0;
+            } 
+            currUser = users[j];
         })
     })
 
-    var i;
-    for (i = 0; i < events.length; i++) {
-        var weekDay = events[i].date.getDay();
-        var newSched = scheduleRef.push({
-            event: events[i].eventName,
-            weekDay: weekDay,
-            scheduledEmp: users[i].user_name,
-            eventDate: events[i].eventDate,
-            startTime: events[i].eventStart,
-
-            //push days and events
-        });
-
-        return true;
-    }
-
+    
 }

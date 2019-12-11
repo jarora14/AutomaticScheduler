@@ -81,3 +81,161 @@
 [debug] [2019-12-10T23:41:53.443Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T01:27:49.577Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T01:27:49.579Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T01:27:49.580Z] CLI Version:   7.7.0
+[debug] [2019-12-11T01:27:49.580Z] Platform:      darwin
+[debug] [2019-12-11T01:27:49.580Z] Node Version:  v10.15.3
+[debug] [2019-12-11T01:27:49.589Z] Time:          Tue Dec 10 2019 19:27:49 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T01:27:49.589Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T01:27:49.589Z] 
+[debug] [2019-12-11T01:27:49.599Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T01:27:49.599Z] > authorizing via signed-in user
+[debug] [2019-12-11T01:27:49.599Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T01:27:49.601Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-11T01:27:49.601Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-11T01:27:49.817Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T01:27:49.828Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T01:27:50.042Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T01:27:50.044Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T01:27:50.323Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T01:27:50.327Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T01:27:50.797Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T01:40:12.060Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T01:40:12.062Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T01:40:12.062Z] CLI Version:   7.7.0
+[debug] [2019-12-11T01:40:12.062Z] Platform:      darwin
+[debug] [2019-12-11T01:40:12.062Z] Node Version:  v10.15.3
+[debug] [2019-12-11T01:40:12.078Z] Time:          Tue Dec 10 2019 19:40:12 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T01:40:12.078Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T01:40:12.078Z] 
+[debug] [2019-12-11T01:40:12.087Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T01:40:12.088Z] > authorizing via signed-in user
+[debug] [2019-12-11T01:40:12.088Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T01:40:12.090Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T01:40:12.701Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T01:40:12.703Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T01:40:13.146Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T01:40:13.149Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T01:40:13.689Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T02:07:27.508Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:07:27.510Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T02:07:27.510Z] CLI Version:   7.7.0
+[debug] [2019-12-11T02:07:27.510Z] Platform:      darwin
+[debug] [2019-12-11T02:07:27.510Z] Node Version:  v10.15.3
+[debug] [2019-12-11T02:07:27.512Z] Time:          Tue Dec 10 2019 20:07:27 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T02:07:27.512Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:07:27.513Z] 
+[debug] [2019-12-11T02:07:27.522Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T02:07:27.523Z] > authorizing via signed-in user
+[debug] [2019-12-11T02:07:27.523Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T02:07:27.524Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T02:07:27.904Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T02:07:27.906Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T02:07:28.184Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T02:07:28.187Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T02:07:28.502Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T02:12:13.869Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:12:13.871Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T02:12:13.871Z] CLI Version:   7.7.0
+[debug] [2019-12-11T02:12:13.871Z] Platform:      darwin
+[debug] [2019-12-11T02:12:13.871Z] Node Version:  v10.15.3
+[debug] [2019-12-11T02:12:13.872Z] Time:          Tue Dec 10 2019 20:12:13 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T02:12:13.872Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:12:13.872Z] 
+[debug] [2019-12-11T02:12:13.881Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T02:12:13.882Z] > authorizing via signed-in user
+[debug] [2019-12-11T02:12:13.882Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T02:12:13.883Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T02:12:14.156Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T02:12:14.158Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T02:12:14.371Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T02:12:14.374Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T02:12:14.632Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T02:20:39.278Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:20:39.280Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T02:20:39.280Z] CLI Version:   7.7.0
+[debug] [2019-12-11T02:20:39.280Z] Platform:      darwin
+[debug] [2019-12-11T02:20:39.280Z] Node Version:  v10.15.3
+[debug] [2019-12-11T02:20:39.281Z] Time:          Tue Dec 10 2019 20:20:39 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T02:20:39.281Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:20:39.281Z] 
+[debug] [2019-12-11T02:20:39.290Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T02:20:39.291Z] > authorizing via signed-in user
+[debug] [2019-12-11T02:20:39.291Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T02:20:39.292Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-11T02:20:39.293Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-11T02:20:39.551Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T02:20:39.560Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T02:20:39.811Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T02:20:39.812Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T02:20:40.153Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T02:20:40.156Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T02:20:40.620Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-12-11T02:26:42.643Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:26:42.645Z] Command:       /usr/local/bin/firebase /Users/jasonarora/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-12-11T02:26:42.645Z] CLI Version:   7.7.0
+[debug] [2019-12-11T02:26:42.645Z] Platform:      darwin
+[debug] [2019-12-11T02:26:42.645Z] Node Version:  v10.15.3
+[debug] [2019-12-11T02:26:42.646Z] Time:          Tue Dec 10 2019 20:26:42 GMT-0600 (Central Standard Time)
+[debug] [2019-12-11T02:26:42.646Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T02:26:42.646Z] 
+[debug] [2019-12-11T02:26:42.656Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T02:26:42.656Z] > authorizing via signed-in user
+[debug] [2019-12-11T02:26:42.656Z] [iam] checking project realtimedatabase-d0a3e for permissions ["firebase.projects.get"]
+[debug] [2019-12-11T02:26:42.658Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/realtimedatabase-d0a3e:testIamPermissions  
+
+[debug] [2019-12-11T02:26:42.903Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T02:26:42.905Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e  
+ 
+[debug] [2019-12-11T02:26:43.207Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jasonarora/Desktop/UWFall19/506Software/AutomaticSchedulerApp/AutomaticScheduler'...
+[info] 
+[debug] [2019-12-11T02:26:43.210Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/realtimedatabase-d0a3e/webApps/-/config  
+ 
+[debug] [2019-12-11T02:26:43.732Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
