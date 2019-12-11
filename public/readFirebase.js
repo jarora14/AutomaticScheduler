@@ -4,7 +4,7 @@ var names = [];
 function firstFunction(_callback){
     var database = firebase.database();
     var usersRef = database.ref('Events');
-    
+    list.innerHTML = '';
   
     var i = 0;
     usersRef.once("value", function (snapshot) {
