@@ -15,6 +15,7 @@ function createTheEvent() {
         eventStart: start,
         eventStop: stop,
     });
+    alert("Added Event and Updated Schedule.");
     
 
     //var users = [];

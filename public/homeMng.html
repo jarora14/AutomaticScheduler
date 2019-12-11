@@ -46,33 +46,33 @@
     }
 
     /* table.empSchedule is for the employee schedule view */
-    table.mngSchedule {
-        border: 2px solid #FFFFFF;
-        width: 100%;
-        text-align: left;
-        border-collapse: collapse;
-    }
+    table.empSchedule {
+            border: 2px solid #FFFFFF;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
 
-    table.mngSchedule td,
-    table.mngSchedule th {
+    table.empSchedule td,
+    table.empSchedule th {
         border: 1px solid #FFFFFF;
         padding: 3px 4px;
     }
 
-    table.mngSchedule tbody td {
+    table.empSchedule tbody td {
         font-size: 13px;
     }
 
-    table.mngSchedule td:nth-child(even) {
+    table.empSchedule td:nth-child(even) {
         background: #EBEBEB;
     }
 
-    table.mngSchedule thead {
+    table.empSchedule thead {
         background: #FFFFFF;
         border-bottom: 4px solid #333333;
     }
 
-    table.mngSchedule thead th {
+    table.empSchedule thead th {
         font-size: 15px;
         font-weight: bold;
         color: #333333;
@@ -80,18 +80,18 @@
         border-left: 2px solid #333333;
     }
 
-    table.mngSchedule thead th:first-child {
+    table.empSchedule thead th:first-child {
         border-left: none;
     }
 
-    table.mngSchedule tfoot {
+    table.empSchedule tfoot {
         font-size: 14px;
         font-weight: bold;
         color: #333333;
         border-top: 4px solid #333333;
     }
 
-    table.mngSchedule tfoot td {
+    table.empSchedule tfoot td {
         font-size: 14px;
     }
 
@@ -217,22 +217,13 @@
         </div>
     </div>
 
+    <!-- Employee Schedule -->
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
-        <!-- Modal Content Schedule -->
-        <form class="modal-content animate" action="/action_page.php">
-            <table class="mngSchedule">
-            </table>
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="makeSchedule();" class="button">Generate</button>
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="submit">Submit</button>
-            </div>
-            <script src="schedulerMng.js"></script>
-            <script src="schedulerLogic.js"></script>
+        <!-- Modal Content View Schedule -->
+        <form class="modal-content animate">
+            <table class="empSchedule"></table>
         </form>
     </div>
 
@@ -323,7 +314,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     </script>
 
     <script src="createEvent.js"></script>
-    <script src="schedulerMng.js"></script>
+    <script src="schedulerEmp.js"></script>
     <script src="schedulerLogic.js"></script>
 </body>
 
