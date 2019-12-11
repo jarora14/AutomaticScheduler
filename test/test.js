@@ -2,6 +2,9 @@
 require('chromedriver');
 const assert = require('assert');
 const {Builder, Key, By, until} = require('selenium-webdriver');
+let name = "test3";
+let email = "test3";
+let password = "test3";
 
 describe('Automatic Scheduler Sign-in Page', function () {
     let driver;
@@ -9,7 +12,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
     this.beforeEach(async function() {
         driver = await new Builder().forBrowser('chrome').build();
     });
-    
+ /*   
     /////////////////////////////////////HOME PAGE/////////////////////////////////////
 
     it('Check Title is displayed on page...', async function() {
@@ -159,6 +162,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
          });
         assert.equal(titleText, 'OVERTURE SCHEDULING');
     });
+    
  
     it('Login with valid user and verify user is brough to employee home screen...', async function() {
         // Load the page
@@ -167,8 +171,8 @@ describe('Automatic Scheduler Sign-in Page', function () {
         await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
         await driver.sleep(250);
         await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
-        await driver.findElement(By.css('input#emailLogin')).sendKeys('dont',Key.RETURN);
-        await driver.findElement(By.css('input#passwordLogin')).sendKeys('delete',Key.RETURN);
+        await driver.findElement(By.css('input#emailLogin')).sendKeys('test',Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys('test',Key.RETURN);
     
         await driver.wait(until.alertIsPresent());
         await driver.switchTo().alert().accept();
@@ -318,7 +322,7 @@ describe('Automatic Scheduler Sign-in Page', function () {
         assert.equal(titleText, 'Create Password');
     });
 
-    it('Click Sign up button and verify user taken to correct Page...', async function() {
+    it('Click Sign up button then cancel and verify user taken to correct Page...', async function() {
         // Load the page
        await driver.get('http://127.0.0.1:5000');
        await driver.sleep(250);
@@ -339,6 +343,160 @@ describe('Automatic Scheduler Sign-in Page', function () {
         });
        assert.equal(titleText, 'OVERTURE SCHEDULING');
     });
+
+    it('Click Sign up button and create new user then log in with user. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#userNameRegister')), 10000);
+
+        await driver.findElement(By.css('input#userNameRegister')).sendKeys(name);
+        await driver.findElement(By.css('input#emailRegister')).sendKeys(email);
+        await driver.findElement(By.css('input#passwordRegister')).sendKeys(password);
+        await driver.findElement(By.css('input#passwordRegister2')).sendKeys(password);
+        await driver.findElement(By.css('div#id02 > form > div:nth-of-type(2) > button')).click();
+
+        await driver.sleep(250);
+        await driver.wait(until.alertIsPresent());
+        await driver.sleep(250);
+        let text = await driver.switchTo().alert().getText();
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Account Created!");
+        assert.equal(text, 'Account Created!');
+    
+    });
+
+    it('Login with new user and verify user is brough to employee home screen...', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('input#emailLogin')), 10000); 
+        await driver.findElement(By.css('input#emailLogin')).sendKeys(email,Key.RETURN);
+        await driver.findElement(By.css('input#passwordLogin')).sendKeys(password,Key.RETURN);
+    
+        await driver.wait(until.alertIsPresent());
+        await driver.switchTo().alert().accept();
+        await driver.sleep(250);
+        let title = await driver.findElement(By.css('html > body > div:nth-of-type(6) > a'));
+        let titleText;
+        await title.getText().then(function (text) {
+            console.log("Button Label Found: ",text);
+            titleText = text;
+            console.log("Button Label Expected: ",'Set availablility');
+         });
+        assert.equal(titleText, 'Set availability');
+    });
+
+    it('Click Sign up button and attempt to create user with used email. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#userNameRegister')), 10000);
+
+        await driver.findElement(By.css('input#userNameRegister')).sendKeys(name);
+        await driver.findElement(By.css('input#emailRegister')).sendKeys(email);
+        await driver.findElement(By.css('input#passwordRegister')).sendKeys(password);
+        await driver.findElement(By.css('input#passwordRegister2')).sendKeys(password);
+        await driver.findElement(By.css('div#id02 > form > div:nth-of-type(2) > button')).click();
+
+        await driver.wait(until.alertIsPresent());
+        await driver.sleep(250);
+        let text = await driver.switchTo().alert().getText();
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Email already registered.");
+        assert.equal(text, 'Email already registered.');
+    });
+
+    it('Click Sign up button and verify all fields are required. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#userNameRegister')), 10000);
+        await driver.sleep(250);
+        let text = await driver.findElement(By.css("input#userNameRegister")).getAttribute("validationMessage"); 
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Please fill out this field.");
+        assert.equal(text, "Please fill out this field.");
+        
+    });
+
+    it('Click Sign up button and verify all fields are required. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#emailRegister')), 10000);
+        await driver.sleep(250);
+        let text = await driver.findElement(By.css("input#emailRegister")).getAttribute("validationMessage"); 
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Please fill out this field.");
+        assert.equal(text, "Please fill out this field.");
+        
+    });
+    it('Click Sign up button and verify all fields are required. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#passwordRegister')), 10000);
+        await driver.sleep(250);
+        let text = await driver.findElement(By.css("input#passwordRegister")).getAttribute("validationMessage"); 
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Please fill out this field.");
+        assert.equal(text, "Please fill out this field.");
+        
+    });
+    it('Click Sign up button and verify all fields are required. . .', async function() {
+        // Load the page
+        await driver.get('http://127.0.0.1:5000');
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')), 10000);
+        await driver.findElement(By.css('html > body > div:nth-of-type(4) > div > div > a:nth-of-type(3)')).click();
+        await driver.sleep(250);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label > b')), 10000);
+        await driver.wait(until.elementLocated(By.css('div#id02 > form > div:nth-of-type(2) > label:nth-of-type(2) > b')), 10000);
+        
+        await driver.wait(until.elementLocated(By.css('input#passwordRegister2')), 10000);
+        await driver.sleep(250);
+        let text = await driver.findElement(By.css("input#passwordRegister2")).getAttribute("validationMessage"); 
+        console.log("Alert Found: ",text);
+        console.log("Alert Desired: ","Please fill out this field.");
+        assert.equal(text, "Please fill out this field.");
+        
+    });
+    
+
+*/
 
 
     // close the browser after running tests

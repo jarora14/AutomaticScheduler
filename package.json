@@ -14,7 +14,8 @@
     "nyc": "^14.1.1"
   },
   "scripts": {
-    "test": "mocha --recursive --timeout 10000",
+    "test": "mocha test --timeout 10000",
+    
     "coverage": "nyc npm run test",
     "jest-test": "jest --coverage"
   },
@@ -28,6 +29,7 @@
       "public/**"
     ]
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jarora14/AutomaticScheduler.git"

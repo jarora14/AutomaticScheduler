@@ -333,9 +333,18 @@
         <span onclick="document.getElementById('id04').style.display='none'" class="close"
             title="Close Modal">&times;</span>
         <!-- Modal Content View Schedule -->
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate">
             <table class="empSchedule"></table>
+            <ul id="demo">
+
+            </ul>
+            <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="getEvents();"
+                        class="submit">Load Events</button>
+            </div>
         </form>
+        
+        
     </div>
 
     <div class="navbar">
@@ -394,6 +403,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="schedulerEmp.js"></script>
     <script src="requestTimeOff.js"></script>
     <script src="setAvail.js"></script>
+    <script src="readFirebase.js"></script>
+    
 </body>
 
 </html>
